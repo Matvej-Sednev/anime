@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>One Dynamic Div</title>
+<style>
+#myDiv {
+  background-color: lightgray;
+  padding: 20px;
+  border: 1px solid gray;
+}
+</style>
+</head>
+<body>
+
+<button id="showButton">Show Div</button>
+
+<script>
+const showButton = document.getElementById("showButton");
+let divCreated = false; // Flag to track div creation
+
+showButton.addEventListener('click', () => {
+  if (!divCreated) {
+    const myDiv = document.createElement('div');
+    myDiv.id = 'myDiv';
+    myDiv.textContent = 'This div was created dynamically.';
+    myDiv.style.cssText = `background-color: lightgray; padding: 20px; border: 1px solid gray;`;
+    document.body.appendChild(myDiv);
+
+    document.addEventListener('click', (event) => {
+      if (event.target !== myDiv && event.target !== showButton) {
+        document.body.removeChild(myDiv);
+        divCreated = false; // Reset the flag
+      }
+    });
+
+    divCreated = true; // Set the flag after creation
+  }
+});
+</script>
+
+</body>
+</html>

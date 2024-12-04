@@ -1,0 +1,819 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f0f0f0;
+    color: #ff0000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+header {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    height: 60px;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 3rem;
+    background-color: #ffffff;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+.footer {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    padding: 1rem;
+    background-color: #ffffff; 
+    color: #ff0000;
+    font-size: 0.9rem;
+    border-top: 1px solid #f0f0f0;
+}
+.footer-top {
+    display: flex;
+}
+
+.footer__logo {
+    display: flex;
+    width: auto;
+    align-items: center;
+    text-align: center;
+    margin-right: 9rem;
+    font-size: 20px;
+}
+
+.footer__logo .logo__caption {
+    font-size: 0.85rem;
+    color: #4a4a4a;
+}
+
+.footer__text {
+    flex-grow: 1;
+    font-size: 2vh;
+    color: #ff0000;
+}
+
+.footer__text a.link-w {
+    color: #ff0000;
+    text-decoration: underline;
+    transition: color 0.3s;
+}
+
+.footer__text a.link-w:hover {
+    color: #d10000;
+}
+.footer-nav {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    margin-right: 9rem;
+}
+.footer-nav ul {
+    list-style: none;
+}
+
+.footer-nav ul li a {
+    color: #ff0000;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s;
+}
+
+.footer-nav ul li a::before {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #ff0000;
+    transition: 0.3s;
+}
+
+.footer-nav ul li a:hover::before {
+    width: 100%;
+}
+
+.logo {
+    position: absolute;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.logo img {
+    width: 50px;
+    height: 50px;
+    margin-right: 0.5rem;
+}
+.footer__logo img {
+    width: 40px;
+    height: 40px;
+    margin-left: 9rem;
+    margin-right: 0.5rem;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5vw;
+}
+
+.search-input {
+    padding: 0.7rem 1rem;
+    border-radius: 15px;
+    border: 2px solid #ff0000;
+    outline: none;
+    transition: border-color 0.3s;
+    color: #000000;
+    background: #ffffff;
+    width: 300px;
+}
+.search-input:focus {
+    border-color: #ff0000;
+}
+
+.video-anons-slider {
+    width: 100%;
+    height: 100%;
+    position: relative; 
+    overflow: hidden;
+  }
+  .slides {
+    display: flex;
+    width: 400%; 
+    height: 100%;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .video-anons {
+    width: 100%; 
+    height: 100vh;
+    box-sizing: border-box;
+    display: flex; 
+    flex-direction: column;
+    background-image: url('/src/img/alya.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    transition: background-image 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  }
+  
+  .video-anons .description-video {
+     width: 50%;
+     background: linear-gradient(to right, black, white);
+     opacity: 0.8;
+     height: 100%;
+     padding-top: 20%;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+  }
+  
+  .video-anons .description p {
+    font-size: 1.2em; 
+    color: white;
+  }
+  .description img {
+    width: 100%;
+    margin-bottom: 10rem;
+  }
+  
+  .video-anons button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  
+  #prev, #next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(249, 249, 249, 0); 
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 2em; 
+    z-index: 1; 
+  }
+  
+  #prev {
+    left: 5px;
+  }
+  #prev img {
+    width: 60px;
+  }
+  #next {
+    right: 5px;
+  }
+  #next img {
+    width: 60px;
+  }
+.description{
+    width: 80%;
+    font-size: 20px;
+    margin-bottom: 80px;
+}
+.button-video {
+    display: flex;
+    width: 200px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+}
+.button-video button {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    background-color: #ff0000;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 100px;
+}
+.button-video button img {
+    width: 25px;
+    margin-right: 1%;
+}
+.menu-profile {
+    position: absolute;
+    right: 20px;
+    display: flex;
+    align-items: center;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    margin-right: 2rem;
+    margin-left: 2rem;
+}
+
+nav ul li a {
+    color: #ff0000;
+    text-decoration: none;
+    font-weight: 300;
+    font-size: 16px;
+    position: relative;
+    transition: color 0.3s;
+}
+
+nav ul li a::before {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #ff0000;
+    transition: 0.3s;
+}
+
+nav ul li a:hover::before {
+    width: 100%;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.profile_account {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+.profile_account img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 2px solid #ff0000;
+    transition: transform 0.3s ease;
+}
+
+.profile:hover img {
+    transform: scale(1.1);
+}
+.account_dropdown {
+    display: none;
+    position: absolute;
+    align-items: center;
+    margin-top: 60px;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    opacity: 0;
+    transform: translateY(-10px);
+    z-index:1;
+}
+.account_dropdown.show{
+    display: flex;
+    white-space: nowrap;
+    justify-content: center;
+    opacity: 1;
+    right: -10px;
+    width: 350px;
+    transform: translateY(50%);
+    border-radius: 8px;
+}
+.account_dropdown * {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: black;
+}
+.inside_account {
+    display: grid;
+    grid-template-columns: 40px 100px;
+}
+#profile_button{
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.season-title {
+    margin: 6rem 0 0 0;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ff0000;
+}
+.anime-catalog{
+    margin: 6rem 0 2rem 0;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ff0000;
+}
+.main-content {
+    padding: 2rem 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+.tooltip {
+    position: absolute;
+    top: 50%; 
+    left: 95%; 
+    transform: translate(10px, -50%);
+    background-color: rgb(255, 255, 255);
+    color: rgb(95, 95, 95);
+    padding: 10px;
+    border-radius: 5px;
+    opacity: 0;
+    white-space: nowrap;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 150;
+}
+.profile_div {
+    display: grid;
+    grid-column: 10 px;
+    position: absolute;
+    top: 104px;
+    right: 0;
+    transform: translate(10px, -50%);
+    background-color: rgb(255, 255, 255);
+    color: rgb(95, 95, 95);
+    padding: 10px;
+    border-radius: 5px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 150;
+}
+.profile_ul{
+    flex-direction: column;
+}
+
+.all_description{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+}
+
+.container:hover .tooltip {
+    opacity: 1;
+    transform: translate(15px, -50%); 
+}
+.tooltip p {
+    margin: 0;
+}
+
+.tooltip span {
+    font-size: 12px;
+    color: #ccc;
+}
+
+
+.anime-card {
+    width: 300px;
+    height: 400px;
+    border-radius: 15px;
+    position: relative;
+    background: rgba(255, 255, 255, 0.9);
+    transition: transform 0.3s ease;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.anime-card img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.anime-card-title {
+    position: absolute;
+    background-color: rgba(35, 35, 35, 0.8);
+    bottom: 0;
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
+    color: hsl(0, 100%, 99%);
+    font-weight: bold;
+    border-radius: 0 0 15px 15px;
+}
+.catalog {
+    display: grid;
+    width: 940px;
+    row-gap: 20px;
+    column-gap: 20px;
+    grid-template-columns: auto auto auto auto;
+    text-align: center;
+    margin-bottom: 5%;
+}
+.catalog * {
+    width: 220px;
+}
+.pagination_div{
+    width: 500px;
+    margin-bottom: 40px;
+}
+.pagination_div ul{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px 0 10px;
+    text-align: center;
+    width: 300px;
+    list-style: none;
+
+}
+.pagination_div li {
+    margin-right: 7px;
+}
+.pagination_div button {
+    width: 40px;
+    height: 40px;
+    padding: 3% 3% 3% 3%;
+    border: 1px solid black;
+    color: black;
+    cursor: pointer;
+    border-radius: 20px;
+}
+.theme-togle {
+    margin: 0;
+    display: flex;
+    list-style-type: none;
+    border: 1px solid red;
+    border-radius: 20px;
+    height: 38px;
+    width: 83px;
+    margin-right: 2rem;
+    align-items: center;
+    align-content: stretch;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.theme-togle .fa-sun{  
+    cursor: pointer;  
+    background-color: red;
+}
+.theme-togle .fa-moon{
+    cursor: pointer;
+    background-color: transparent;
+}
+.fal{
+    border-radius: 50%;
+    display: flex;
+    border: none;
+    width: 32px;
+    height: 32px;
+    align-items: center;
+    justify-content: space-around;
+}
+.fa-sun img{
+    width: auto;
+    height: 14px;
+}
+.fa-moon img{
+    width: auto;
+    height: 14px;
+}
+
+ 
+.ribbon-right {
+	position: absolute;
+    top: 0px;
+	right: 0px;
+	color: #fff;
+	background: red;
+	padding: 1.5% 28px 0 28px;
+	height: 38px;
+	line-height: 26px;
+    
+}
+.all-filter .button-filter{
+    background-color: transparent;
+    border-radius: 20px;
+    margin-top: 10px;
+}
+.all-filter img {
+    border-radius: 10px;
+    width: 35px;
+    height: 35px;
+    box-shadow: 2px 2px 5px 0px rgba(184, 184, 184, 0.5);
+}
+.filter {
+    display: grid;
+    width: 940px;
+    row-gap: 20px;
+    column-gap: 20px;
+    grid-template-columns: auto;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.select-filtr * {
+    border: none;
+    height: 30px;
+    width: 180px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px 0px rgba(184, 184, 184, 0.5);
+}
+.filter-select{
+    display: flex;
+    justify-content: space-between;
+}
+.filter button {
+    width: 100%;
+    border: none;
+    height: 100%;
+    padding: 3% 3% 3% 3%;
+    border-radius: 20px;
+    background-color: #ff0000;
+    color: white;
+    cursor: pointer;
+}
+.filter-block {
+    position: relative;
+}
+.filter_div select{
+    width: 100%;
+    margin-bottom: 5%;
+}
+
+.show {
+    display: none;
+}
+
+.dark-theme {
+    background-color: #303030;
+    color: #ff0000;
+}
+
+.dark-theme header {
+    background-color: #1e1e1e;
+    color: #ff0000;
+}
+
+.dark-theme footer {
+    background-color: #1e1e1e;
+    color: #ff0000;
+}
+
+.dark-theme .anime-card {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
+}
+
+.dark-theme .search-input {
+    background-color: #333;
+    color: #ff0000;
+    border-color: #ff0000;
+}
+
+.dark-theme .menu-profile nav ul li a {
+    color: #ff0000;
+}
+
+.dark-theme .profile img {
+    border-color: #ffffff;
+}
+
+.burger-menu {
+    font-size: 1.5em;
+    cursor: pointer;
+    display: none; 
+    position: absolute;
+    right: 20px;
+    color: ff0000;
+}
+
+.all-filter {
+    margin-bottom: 10px;
+  }
+  
+  .button-filter {
+    background-color: #f0f0f0;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+  }
+  
+  .button-filter img {
+    width: 40px; 
+    height: 40px; 
+  }
+  
+  .filter-dropdown {
+    display: none; 
+    position: absolute;
+    align-items: center;
+    margin-top: 60px;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    opacity: 0;
+    transform: translateY(-10px); 
+    z-index:1;
+  }
+  .filter-nez{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    column-gap: 45px;
+    text-align: left;
+    justify-content: space-between;
+    width: 650px;
+    margin-bottom: 40px;
+  }
+  .filter-nez p {
+    margin-bottom: 10px;
+  }
+  .slider p{
+    margin-bottom: 15px;
+  }
+  .slider{
+    display: grid;
+    grid-template-columns: 150px 150px 150px;
+    column-gap: 100px;
+    text-align: left;
+  }
+  .filter-dropdown.show {
+    display: flex;
+    flex-direction: column;
+    white-space: wrap;
+    opacity: 1;
+    right:18.8vw;
+    justify-content: space-between;
+    width: 800px;
+    transform: translateY(0);
+    padding: 10px 10px 10px 10px;
+  }
+
+@media only screen and (max-width: 768px) {
+    .menu-profile {
+        display: none;
+    }
+
+    .burger-menu {
+        display: block; 
+        color: ff0000;
+    }
+
+    .burger-menu.active {
+        display: none; 
+    }
+
+    .menu-profile.active {
+        display: inline; 
+        flex-direction: column;
+        position: absolute;
+        top:5vh;
+        right: 0;
+        background-color: #333;
+        z-index: 1;
+    }
+
+    .menu-profile.active a {
+        padding: 15px;
+        display: block;
+        text-align: center;
+    }
+    .menu-profile{
+        right: 5px;
+    }
+    .logo{
+        font-size: 20px;
+        left: 8px;
+    }
+    .logo img {
+        margin-right: 0.3rem;
+        width: 35px;
+        height: 35px;
+    }
+    nav ul {
+        gap: 5px;
+        margin-right: 5px;
+    }
+    nav ul li a {
+        font-size: 10px;
+        margin-right: 5px;
+        gap: 5px;
+    }
+
+    .profile img {
+        width: 30px;
+        height: 30px;
+        margin-right: 0px;
+    }
+    header{
+        height: 35px;
+    }
+    .button_div{
+        border: 1px solid red;
+        border-radius: 50%;
+        width: 18px;
+        height: 18px;
+        margin: 0;
+    }
+
+    .season-title{
+        font-size: 22px;
+        margin-top: 10px;
+        margin-bottom: 0px;
+    }
+    .anons-title{
+        font-size: 22px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .anime-card{
+        width: 100px;
+        height: 150px;
+    }
+    .catalog{
+        width: auto;
+        grid-template-columns: auto auto;
+        align-items: center;
+    }
+    .catalog * {
+        width: 120px;
+    }
+    .filter {
+        left: 20%;
+    }
+    .filter button {
+        width: 130%;
+        font-size: 10px;
+    }
+}

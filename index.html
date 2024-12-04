@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/css/style.css">
+    <script src="/src/JS/filters.js"></script>
+    <title>Аниме</title>
+</head>
+<body>
+<header>
+    <div class="logo">
+        <img src="/src/img/logo.svg" alt="Логотип">
+        Anika
+    </div>
+    <div class="search-container">
+        <input type="text" class="search-input" placeholder="Поиск аниме...">
+    </div>
+
+    <div class="menu-profile">
+        <ul class="theme-togle">
+            <li>
+                <button id="light" class="fal fa-sun">
+                    <img src="/src/img/sun.svg" alt="">
+                </button>
+            </li>
+            <li>
+                <button id="black" class="fal fa-moon">
+                    <img src="/src/img/moon.svg" alt="">
+                </button>
+            </li>
+        </ul>
+        <nav>
+            <ul class="profile">
+                <li><a href="#">Главная</a></li>
+                <li><a href="#">Аниме сезона</a></li>
+            </ul>
+        </nav>
+        <div class="profile_account">
+            <button id="profile_button"><img  src="src/img/icon.svg" alt="Профиль"></button>
+        </div>
+        <div id="account_dropdown" class="account_dropdown">
+            <div class="inside_account">
+                 <img style="width: 30px; height: 30px" src="src/img/icon.png" alt="">
+                 <button>Профиль</button>
+                 <img style="width: 30px; height: 30px" src="src/img/icon.png" alt="">
+                 <button>Настройки</button>
+                 <img style="width: 30px; height: 30px" src="src/img/Logout.svg" alt="">
+                 <button>Выход</button>
+            </div>
+        </div>
+    </div>
+    <div class="burger-menu">&#9776;</div>
+</header>
+<div class="video-anons-slider">
+    <div class="slides">
+      <div class="video-anons">
+        <div class="description-video">
+          <div class="description">
+            <p>Аниме новинки осени. Новые тайтлы и долгожданные продолжения</p>
+          </div>
+          <div class="button-video">
+            <button><img src="src/img/video-icon.png" alt=""> Смотреть видео</button>
+          </div>
+        </div>  
+      </div>
+      <div class="video-anons">
+        <div class="description-video">
+          <div class="description">
+            <p>Аниме новинки осени. Новые тайтлы и долгожданные продолжения</p>
+          </div>
+          <div class="button-video">
+            <button><img src="src/img/video-icon.png" alt=""> Смотреть видео</button>
+          </div>
+        </div>  
+      </div>
+      <div class="video-anons">
+        <div class="description-video">
+          <div class="description">
+            <p>Аниме новинки осени. Новые тайтлы и долгожданные продолжения</p>
+          </div>
+          <div class="button-video">
+            <button><img src="src/img/video-icon.png" alt=""> Смотреть видео</button>
+          </div>
+        </div>
+      </div>
+      <div class="video-anons">
+        <div class="description-video">
+          <div class="description">
+            <p>Аниме новинки осени. Новые тайтлы и долгожданные продолжения</p>
+          </div>
+          <div class="button-video">
+            <button><img src="src/img/video-icon.png" alt=""> Смотреть видео</button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    <button id="prev"><img src="src/img/circle-arrow-left.png" alt=""></button>
+    <button id="next"><img src="src/img/circle-arrow-right.png" alt=""></button>
+  </div>
+
+<h1 class="season-title">Аниме Сезона</h1>
+
+<div class="main-content">
+    <div class="anime-card card container" data-season = "Лето 2024" data-description="Поднятие уровня в одиночку" data-all_description="Тип: Сериал" data-full_description="Жанры: Приключения Фэнтези Игра Сёнэн Драма">
+        <img src="/src/img/Solo.jpg" alt="Аниме 1">
+        <div class="ribbon-right">8.1</div>
+        <div class="anime-card-title">Поднятие уровня в одиночку</div>
+    </div>
+
+    <div class="anime-card container" data-season = "Зима 2024"data-description="Провожающая в последний путь фрирен" data-all_description="Сериал 12 Серий ">
+        <img src="/src/img/friren.jpg" alt="Аниме 2">
+        <div class="ribbon-right">8.1</div>
+        <div class="anime-card-title">Провожающая в последний путь фрирен</div>
+    </div>
+    <div class="anime-card container" data-description="Второй">
+        <img src="/src/img/Dandan.jpeg" alt="Аниме 3">
+        <div class="ribbon-right">8.1</div>
+        <div class="anime-card-title">Аниме 3</div>
+    </div>
+    <div class="anime-card container" data-description="Третий">
+        <img src="src/img/danger.jpeg" alt="Аниме 4">
+        <div class="ribbon-right">8.1</div>
+        <div class="anime-card-title">Аниме 4</div>
+    </div>
+    <div class="anime-card container" data-description="Четвертый">
+        <img src="src/img/re-zero.jpeg" alt="Аниме 5">
+        <div class="ribbon-right">8.1</div>
+        <div class="anime-card-title">Аниме 5</div>
+    </div>
+</div>
+<h3 class="anime-catalog">Каталог аниме</h3>
+<div class="filter">
+    <div class="filter-select">
+        <div>
+            <div>Поиск</div>
+            <div class="select-filtr">
+                <form action="" >
+                    <input type=${secure} placeholder=" Поиск">
+                </form>
+            </div>
+        </div>
+        <div>
+            <div>Жанры</div>
+            <div class="select-filtr" >
+                <form  action="">
+                    <select  name="" id="">
+                        <option value="">any</option>
+                        <option value=""></option>
+                        <option value="">any</option>
+                        <option value="">any</option>
+                        <option value="">any</option>
+                        <option value="">any</option>
+                    </select>
+                </form>
+            </div>
+        </div>
+        <div>
+            <div>Год</div>
+            <div  class="select-filtr" >
+                <form  action="">
+                    <select  name="" id="">
+                        <option value="">any</option>
+                        <option value="">any</option>
+                        <option value="">any</option>
+                        <option value="">any</option>
+                        <option value="">any</option>
+                        <option value="">any</option>
+                    </select>
+                </form>
+            </div>
+        </div>
+        <div>
+            <div>Сезон</div>
+            <div class="select-filtr">
+                <form action="">
+                    <select  name="" id="">
+                        <option value="">any</option>
+                        <option value="">any</option>
+                        <option value="">any</option>
+                        <option value="">any</option>
+                        <option value="">any</option>
+                        <option value="">any</option>
+                    </select>
+                </form>
+            </div>
+        </div>
+        <div class="all-filter">
+            <button id="button-filter" class="button-filter"><img src="src/img/filter.svg" alt="Filter"></button>
+        </div>
+          
+        <div id="filterDropdown" class="filter-dropdown">
+            <div class="filter-nez">
+                <div>
+                    <p>streaming</p>
+                    <div class="select-filtr" >
+                        <form  action="">
+                            <select  name="" id="">
+                                <option value="">any</option>
+                                <option value=""></option>
+                                <option value="">any</option>
+                                <option value="">any</option>
+                                <option value="">any</option>
+                                <option value="">any</option>
+                            </select>
+                        </form>
+                    </div>
+                </div>
+                <div>
+                    <p>Год</p>
+                    <div  class="select-filtr" >
+                        <form  action="">
+                            <select  name="" id="">
+                                <option value="">any</option>
+                                <option value="">any</option>
+                                <option value="">any</option>
+                                <option value="">any</option>
+                                <option value="">any</option>
+                                <option value="">any</option>
+                            </select>
+                        </form>
+                    </div>
+                </div>
+                <div>
+                    <p>Сезон</p>
+                    <div class="select-filtr">
+                        <form action="">
+                            <select  name="" id="">
+                                <option value="">any</option>
+                                <option value="">any</option>
+                                <option value="">any</option>
+                                <option value="">any</option>
+                                <option value="">any</option>
+                                <option value="">any</option>
+                            </select>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="slider">
+                <div>
+                    <p>year range</p>
+                    <input type="range" min="0" max="100" step="1" value="50">
+                </div>
+                <div>
+                    <p>episodes</p>
+                    <input type="range" min="0" max="100" step="1" value="50">
+                </div>
+                <div>
+                    <p>duration</p>
+                    <input type="range" min="0" max="100" step="1" value="50">
+                </div>
+            
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="catalog" >
+    <div class="anime-card  container" data-season = "Лето 2024" data-description="Поднятие уровня в одиночку"  data-all_description="Тип: Сериал" >
+        <div class="anime-card-title ">Аниме 1</div>
+    </div>
+    <div class="anime-card">
+        <img src="anime2.jpg" alt="Аниме 2">
+        <div class="anime-card-title">Аниме 2</div>
+    </div>
+    <div class="anime-card">
+        <img src="anime3.jpg" alt="Аниме 3">
+        <div class="anime-card-title">Аниме 3</div>
+    </div>
+    <div class="anime-card">
+        <img src="anime4.jpg" alt="Аниме 4">
+        <div class="anime-card-title">Аниме 4</div>
+    </div>
+    <div class="anime-card">
+        <img src="anime5.jpg" alt="Аниме 5">
+        <div class="anime-card-title">Аниме 5</div>
+    </div>
+    <div class="anime-card">
+        <img src="anime5.jpg" alt="Аниме 6">
+        <div class="anime-card-title">Аниме 6</div>
+    </div>
+    <div class="anime-card">
+        <img src="anime5.jpg" alt="Аниме 6">
+        <div class="anime-card-title">Аниме 6</div>
+    </div>
+    <div class="anime-card">
+        <img src="anime5.jpg" alt="Аниме 6">
+        <div class="anime-card-title">Аниме 6</div>
+    </div>
+</div>
+</div>
+<div class="pagination_div">
+    <ul>
+        <li><button>1</button></li>
+        <li><button>2</button></li>
+        <li><button>3</button></li>
+        <li><button>4</button></li>
+        <li><button>5</button></li>
+        <li><button>6</button></li>
+        <li><button>7</button></li>
+        <li><button>8</button></li>
+        <li><button>9</button></li>
+    </ul>
+</div>
+<footer class="footer">
+   <div class="footer-top"> 
+        <div class="footer__logo">
+            <img src="/src/img/logo.svg" alt="Логотип">
+            <p>Anika</p>
+        </div>
+        <div class="footer-nav">
+            <ul>
+                <li><a href="#">Аниме анонсы</a></li>
+                <li><a href="#">Аниме сезона</a></li>
+                <li><a href="#">Каталог аниме</a></li>
+            </ul>
+        </div>
+        <div style="display: flex; width: 100px; justify-content: space-between;">
+            <a href=""><img style="width: 30px;" src="src/img/Telegram.svg" alt=""></a>
+            <a href=""><img  style="width: 30px;" src="src/img/rutube.svg" alt=""></a>
+            <a href=""><img style="width: 30px;" src="src/img/VK.svg" alt=""></a>
+        </div>
+        <div style="margin-left: 8rem;">
+            <p>Пользовательское соглашение</p>
+            <p>Политика</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
+ 
