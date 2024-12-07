@@ -177,27 +177,31 @@ header {
   
   .video-anons .description-video {
      width: 50%;
-     background: linear-gradient(to right, black, white);
-     opacity: 0.8;
+     background-image: linear-gradient(-450deg, rgba(255, 255, 255, 0.01) 10%, rgba(0, 0, 0, 0.9) 60%);
      height: 100%;
-     padding-top: 20%;
+     padding-top: 10%;
      display: flex;
      flex-direction: column;
      justify-content: center;
      align-items: center;
   }
-  
+  .logo-description{
+    width: 300px;
+    height: 200px;
+  }
   .video-anons .description p {
     font-size: 1.2em; 
     color: white;
+    opacity: 1;
   }
   .description img {
     width: 100%;
     margin-bottom: 10rem;
+
   }
   
   .video-anons button {
-    margin-top: 10px;
+    margin-top: 30px;
     padding: 10px 20px;
     font-size: 1em;
     color: white;
@@ -452,11 +456,53 @@ nav ul li a:hover::before {
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
 }
 
-.anime-card img {
+.anime-card video {
     width: 100%;
     height: 400px;
     object-fit: cover;
     border-radius: 15px;
+}
+.video-container {
+    width: 320px;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 10px; /* Add some spacing between containers */
+  }
+  
+  .video-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+  }
+  
+  .video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    display: none; /* Initially hide videos */
+    transition: opacity 0.3s ease;
+  }
+  
+  .video-container video.active {
+    display: block; /* Show video when active */
+    opacity: 1;
+  }
+.anime-card img {
+    width: 100%;
+    height: 400px;
+    border-radius: 15px;
+    position: relative;
+    background: rgba(255, 255, 255, 0.9);
+    transition: transform 0.3s ease;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
 }
 
 .anime-card-title {

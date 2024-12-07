@@ -31,33 +31,33 @@ document.addEventListener('DOMContentLoaded', function () {
       menu.classList.toggle('active');
   });
 });
-document.addEventListener('DOMContentLoaded', function () {
-    const containers = document.querySelectorAll('.container');
-    containers.forEach(container => {
-        const description = container.dataset.description;
-        const all_description = container.dataset.all_description;
-        const full_description = container.dataset.full_description;
-        const tooltip = document.createElement('div');
-        const season = container.dataset.season;
-        tooltip.classList.add('tooltip');
+// document.addEventListener('DOMContentLoaded', function () {
+//      const containers = document.querySelectorAll('.container');
+//      containers.forEach(container => {
+//         const description = container.dataset.description;
+//         const all_description = container.dataset.all_description;
+//         const full_description = container.dataset.full_description;
+//         const tooltip = document.createElement('div');
+//         const season = container.dataset.season;
+//         tooltip.classList.add('tooltip');
 
-        tooltip.innerHTML = `
-            <h4>${season}</h4>
-            <p style="font-size:20px">${description}</p>
-            <div class="all_description">
-                <p>${all_description}</p>
-                <p>${full_description}</p>
-            </div>
-            <span>Рейтинг: 8.1</span>
-        `;
+//         tooltip.innerHTML = `
+//             <h4>${season}</h4>
+//             <p style="font-size:20px">${description}</p>
+//             <div class="all_description">
+//                 <p>${all_description}</p>
+//                 <p>${full_description}</p>
+//             </div>
+//             <span>Рейтинг: 8.1</span>
+//         `;
 
-        container.appendChild(tooltip);
+//         container.appendChild(tooltip);
 
-        // Обработчики событий на tooltip
-        tooltip.addEventListener('mouseenter', () => { tooltip.style.opacity = 1; });
-        tooltip.addEventListener('mouseleave', () => { tooltip.style.opacity = 0; });
-    });
-});
+//         // Обработчики событий на tooltip
+//         tooltip.addEventListener('mouseenter', () => { tooltip.style.opacity = 1; });
+//         tooltip.addEventListener('mouseleave', () => { tooltip.style.opacity = 0; });
+//     });
+// });
 
     document.addEventListener('DOMContentLoaded', function() {
         const slides = document.querySelector('.slides');
@@ -125,4 +125,26 @@ document.addEventListener('DOMContentLoaded', function (){
             profile_dropdown.classList.remove('show')
         }
     });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  const videoContainers = document.querySelectorAll('.video-container');
+
+  videoContainers.forEach(container => {
+    const poster = container.querySelector('img');
+    const video = container.querySelector('video');
+  
+    container.addEventListener('mouseover', () => {
+      poster.style.opacity = 0;
+      video.classList.add('active');
+      video.play();
+    });
+  
+    container.addEventListener('mouseout', () => {
+      video.pause();
+      video.currentTime = 0;
+      video.classList.remove('active');
+      poster.style.opacity = 1;
+    });
+  });
 });
