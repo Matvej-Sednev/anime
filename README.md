@@ -17,14 +17,14 @@
 ## Структура проекта
 
 ```
-/anime-catalog
+/anime
 │
 ├── index.html          # Главная страница с каталогом аниме
 ├── src
 │   ├── css
 │   │   └── style.css   # Стили для сайта
 │   └── js
-│       └── script.js    # Скрипты для интерактивности (если есть)
+│       └── script.js    # Скрипты для интерактивности
 └── README.md           # Документация проекта
 ```
 
@@ -32,12 +32,12 @@
 
 1. Склонируйте репозиторий:
    ```bash
-   git clone https://github.com/ваш-логин/anime-catalog.git
+   git clone https://github.com/Matvej-Sednev/anime.git
    ```
 
 2. Перейдите в директорию проекта:
    ```bash
-   cd anime-catalog
+   cd anime
    ```
 
 3. Откройте файл `index.html` в вашем веб-браузере.
