@@ -31,33 +31,6 @@ document.addEventListener('DOMContentLoaded', function () {
       menu.classList.toggle('active');
   });
 });
-// document.addEventListener('DOMContentLoaded', function () {
-//      const containers = document.querySelectorAll('.container');
-//      containers.forEach(container => {
-//         const description = container.dataset.description;
-//         const all_description = container.dataset.all_description;
-//         const full_description = container.dataset.full_description;
-//         const tooltip = document.createElement('div');
-//         const season = container.dataset.season;
-//         tooltip.classList.add('tooltip');
-
-//         tooltip.innerHTML = `
-//             <h4>${season}</h4>
-//             <p style="font-size:20px">${description}</p>
-//             <div class="all_description">
-//                 <p>${all_description}</p>
-//                 <p>${full_description}</p>
-//             </div>
-//             <span>Рейтинг: 8.1</span>
-//         `;
-
-//         container.appendChild(tooltip);
-
-//         // Обработчики событий на tooltip
-//         tooltip.addEventListener('mouseenter', () => { tooltip.style.opacity = 1; });
-//         tooltip.addEventListener('mouseleave', () => { tooltip.style.opacity = 0; });
-//     });
-// });
 
     document.addEventListener('DOMContentLoaded', function() {
         const slides = document.querySelector('.slides');
@@ -82,19 +55,19 @@ document.addEventListener('DOMContentLoaded', function () {
             autoScrollInterval = setInterval(() => {
                 currentIndex = (currentIndex + 1) % slideArray.length;
                 setPositionByIndex();
-            }, 3000); // Автопрокрутка каждые 3 секунды
+            }, 3000); 
         }
 
         function stopAutoScroll() {
             clearInterval(autoScrollInterval);
         }
 
-        // Установка позиции слайда
+
         function setPositionByIndex() {
             currentTranslate = currentIndex * -slideWidth;
             slides.style.transform = `translateX(${currentTranslate}%)`;
 
-            // Установка backgroundImage для текущего слайда
+
             slideArray.forEach((slide, index) => {
                 if (index === currentIndex && imagePaths[index]) {
                     slide.style.backgroundImage = `url(${imagePaths[index]})`;
@@ -104,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }
 
-        // Обработчики событий для пролистывания потягиванием
+
         slides.addEventListener('touchstart', touchStart);
         slides.addEventListener('touchend', touchEnd);
         slides.addEventListener('touchmove', touchMove);
@@ -160,7 +133,6 @@ document.addEventListener('DOMContentLoaded', function () {
             startAutoScroll();
         });
 
-        // Вызов функции для отображения начального слайда и запуска автопрокрутки
         setPositionByIndex();
     })
 document.addEventListener('DOMContentLoaded', function() {
@@ -179,15 +151,18 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.addEventListener('DOMContentLoaded', function (){
-    const button_profile = document.getElementById('profile_button')
-    const profile_dropdown = document.getElementById('account_dropdown')
+    const profileButton = document.getElementById('profile_button');
+    const accountDropdown = document.getElementById('account_dropdown');
 
-    button_profile.addEventListener('click', () => {
-        profile_dropdown.classList.toggle('show');
-    })
+    profileButton.addEventListener('click', () => {
+        // Переключаем видимость выпадающего меню
+        accountDropdown.style.display = accountDropdown.style.display === 'block' ? 'none' : 'block';
+    });
+
+    // Закрытие выпадающего меню при клике вне его
     document.addEventListener('click', (event) => {
-        if (!event.target.closest('.account_dropdown') && !event.target.closest('.profile_account')){
-            profile_dropdown.classList.remove('show')
+        if (!profileButton.contains(event.target) && !accountDropdown.contains(event.target)) {
+            accountDropdown.style.display = 'none';
         }
     });
 });
@@ -283,7 +258,7 @@ function showCustomDropdown(id) {
 function hideCustomDropdown(id) {
     setTimeout(() => {
         document.getElementById(id).style.display = 'none';
-    }, 200); // Задержка, чтобы позволить выбор элемента
+    }, 200); 
 }
 
 document.querySelectorAll('.dropdown-item').forEach(item => {
@@ -294,86 +269,182 @@ document.querySelectorAll('.dropdown-item').forEach(item => {
     });
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    const itemsPerPage = 8;
-    const catalog = document.querySelector('.catalog');
-    const allCards = Array.from(document.querySelectorAll('.anime-card'));
-    let currentPage = 1;
-    let isLoading = false;
+//document.addEventListener('DOMContentLoaded', function() {
+    // const itemsPerPage = 8;
+    // const catalog = document.querySelector('.catalog');
+    // const allCards = Array.from(document.querySelectorAll('.anime-card'));
+    // let currentPage = 1;
+    // let isLoading = false;
 
-    // Скрываем все карточки изначально
-    allCards.forEach((card, index) => {
-        if (index >= itemsPerPage) {
-            card.style.display = 'none';
-        }
-    });
+    
+    // allCards.forEach((card, index) => {
+    //     if (index >= itemsPerPage) {
+    //         card.style.display = 'none';
+    //     }
+    // });
 
-    function showLoading() {
-        if (!isLoading) {
-            isLoading = true;
-            const loadingDiv = document.createElement('div');
-            loadingDiv.className = 'loading';
-            loadingDiv.textContent = 'Загрузка...';
-            catalog.appendChild(loadingDiv);
-        }
-    }
+    // function showLoading() {
+    //     if (!isLoading) {
+    //         isLoading = true;
+    //         const loadingDiv = document.createElement('div');
+    //         loadingDiv.className = 'loading';
+    //         loadingDiv.textContent = 'Загрузка...';
+    //         catalog.appendChild(loadingDiv);
+    //     }
+    // }
 
-    function hideLoading() {
-        const loadingDiv = document.querySelector('.loading');
-        if (loadingDiv) {
-            loadingDiv.remove();
-        }
-        isLoading = false;
-    }
+    // function hideLoading() {
+    //     const loadingDiv = document.querySelector('.loading');
+    //     if (loadingDiv) {
+    //         loadingDiv.remove();
+    //     }
+    //     isLoading = false;
+    // }
 
-    function loadMoreItems() {
-        if (isLoading) return;
+    // function loadMoreItems() {
+    //     if (isLoading) return;
 
-        const scrollPosition = window.scrollY;
-        const windowHeight = window.innerHeight;
-        const documentHeight = document.documentElement.scrollHeight;
+    //     const scrollPosition = window.scrollY;
+    //     const windowHeight = window.innerHeight;
+    //     const documentHeight = document.documentElement.scrollHeight;
 
-        if (scrollPosition + windowHeight >= documentHeight - 100) {
-            showLoading();
+    //     if (scrollPosition + windowHeight >= documentHeight - 10) {
             
-            setTimeout(() => {
-                const start = currentPage * itemsPerPage;
-                const end = start + itemsPerPage;
+    //         setTimeout(() => {
+    //             const start = currentPage * itemsPerPage;
+    //             const end = start + itemsPerPage;
 
-                // Проверяем, есть ли еще карточки для отображения
-                if (start < allCards.length) {
-                    // Показываем следующие карточки
-                    allCards.slice(start, end).forEach(card => {
-                        card.style.display = 'block';
-                    });
-                    currentPage++;
-                } else {
-                    // Если карточки закончились, убираем обработчик прокрутки
-                    window.removeEventListener('scroll', loadMoreItems);
-                }
+                
+    //             if (start < allCards.length) {
+                
+    //                 allCards.slice(start, end).forEach(card => {
+    //                     card.style.display = 'block';
+    //                 });
+    //                 currentPage++;
+    //             } else {
+                    
+    //                 window.removeEventListener('scroll', loadMoreItems);
+    //             }
 
-                hideLoading();
-            }, 1000);
-        }
-    }
+    //             hideLoading();
+    //         }, 1000);
+    //     }
+    // }
 
-    // Добавляем слушатель события прокрутки
-    window.addEventListener('scroll', loadMoreItems);
-});
+   
+    // window.addEventListener('scroll', loadMoreItems);
+//});
 
 document.addEventListener('DOMContentLoaded', function() {
     const allCards = document.querySelectorAll('.anime-card');
 
-    // Обработчики событий для карточек аниме
     allCards.forEach(card => {
         card.addEventListener('mouseenter', () => {
             const tooltip = card.querySelector('.tooltip');
-            tooltip.style.display = 'block'; // Показываем всплывающее описание
+            if (tooltip) {
+                tooltip.style.display = 'block'; 
+            } else {
+                console.error('Tooltip не найден для этой карточки');
+            }
         });
 
         card.addEventListener('mouseleave', () => {
             const tooltip = card.querySelector('.tooltip');
-            tooltip.style.display = 'none'; // Скрываем всплывающее описание
+            if (tooltip) {
+                tooltip.style.display = 'none'; 
+            }
         });
     });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const animeCards = document.querySelectorAll('.catalog .anime-card.container.video-container');
+    const prevButton = document.getElementById('prev');
+    const nextButton = document.getElementById('next');
+    const pageInfo = document.getElementById('page-info');
+    const pageNumbersContainer = document.getElementById('page-numbers');
+
+    if (!prevButton || !nextButton || !pageInfo || !pageNumbersContainer) {
+        console.error("Не удалось найти элементы пагинации.");
+        return;
+    }
+
+    const itemsPerPage = 8;
+    let currentPage = 1;
+    const totalItems = animeCards.length;
+    const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+    function renderPage(page) {
+        const startIndex = (page - 1) * itemsPerPage;
+        const endIndex = startIndex + itemsPerPage;
+
+        animeCards.forEach((card, index) => {
+            card.style.display = (index >= startIndex && index < endIndex) ? 'block' : 'none';
+        });
+
+        pageNumbersContainer.innerHTML = '';
+        const prevArrow = document.createElement('button');
+        prevArrow.innerHTML = '&lt;';
+        prevArrow.classList.add('pagination-button', 'arrow');
+        prevArrow.disabled = page === 1;
+        prevArrow.addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                renderPage(currentPage);
+            }
+        });
+        pageNumbersContainer.appendChild(prevArrow);
+        let startPage = Math.max(1, page - 2);
+        let endPage = Math.min(totalPages, page + 2);
+
+        if (page <= 3) {
+            endPage = Math.min(5, totalPages);
+        }
+        if (page >= totalPages - 2) {
+            startPage = Math.max(1, totalPages - 4);
+        }
+
+        for (let i = startPage; i <= endPage; i++) {
+            const pageNumber = document.createElement('button');
+            pageNumber.textContent = i;
+            pageNumber.classList.add('pagination-button');
+            if (i === page) {
+                pageNumber.classList.add('active');
+            }
+            pageNumber.addEventListener('click', () => {
+                currentPage = i;
+                renderPage(currentPage);
+            });
+            pageNumbersContainer.appendChild(pageNumber);
+        }
+        if (endPage < totalPages) {
+            const dots = document.createElement('span');
+            dots.textContent = '...';
+            dots.classList.add('pagination-dots');
+            pageNumbersContainer.appendChild(dots);
+
+            const lastPage = document.createElement('button');
+            lastPage.textContent = totalPages;
+            lastPage.classList.add('pagination-button');
+            lastPage.addEventListener('click', () => {
+                currentPage = totalPages;
+                renderPage(currentPage);
+            });
+            pageNumbersContainer.appendChild(lastPage);
+        }
+
+        const nextArrow = document.createElement('button');
+        nextArrow.innerHTML = '&gt;';
+        nextArrow.classList.add('pagination-button', 'arrow');
+        nextArrow.disabled = page === totalPages;
+        nextArrow.addEventListener('click', () => {
+            if (currentPage < totalPages) {
+                currentPage++;
+                renderPage(currentPage);
+            }
+        });
+        pageNumbersContainer.appendChild(nextArrow);
+    }
+
+    renderPage(currentPage);
 });

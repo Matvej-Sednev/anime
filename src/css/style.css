@@ -258,12 +258,12 @@ header {
     width: 300px;
     font-size: 15px;
     margin-top: 10px;
-    
+    display: block;
 }
 
 .button-video {
     display: flex;
-    width: 200px;
+    width: 400px;
     height: 40px;
 }
 
@@ -333,11 +333,31 @@ nav ul li a:hover::before {
 }
 
 .profile_account {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
+    position: relative;
 }
 
+.profile-button {
+    background: none;
+    font-size: 24px;
+    color: red;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    transition: transform 0.2s;
+}
+
+.profile-button:hover {
+    transform: scale(1.1);
+}
+
+.profile-button .account-icon {
+    font-size: 24px;
+    color: red;
+}
+
+.profile-button:hover .account-icon {
+    color: darkred;
+}
 
 .profile_account img {
     width: 45px;
@@ -347,57 +367,67 @@ nav ul li a:hover::before {
     transition: transform 0.3s ease;
 }
 
-.profile:hover img {
-    transform: scale(1.1);
-}
-
 .account_dropdown {
     display: none;
     position: absolute;
-    align-items: center;
-    margin-top: 60px;
+    right: 0;
+    top: 50px;
     background-color: white;
     border: 1px solid #ccc;
-    padding: 10px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-    opacity: 0;
-    transform: translateY(-10px);
-    z-index: 1;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    animation: fadeIn 0.3s;
 }
 
-.account_dropdown.show {
-    display: flex;
-    white-space: nowrap;
-    justify-content: center;
-    opacity: 1;
-    right: -10px;
-    width: 350px;
-    transform: translateY(50%);
-    border-radius: 8px;
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.account_dropdown * {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    margin-bottom: 10px;
-    font-size: 16px;
-    color: black;
+.profile_button:hover + .account_dropdown,
+.account_dropdown:hover {
+    display: block;
 }
 
 .inside_account {
-    display: grid;
-    grid-template-columns: 40px 100px;
+    padding: 10px;
 }
 
-#profile_button {
-    border-radius: 50%;
-    width: 45px;
-    height: 45px;
+.account-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    transition: background-color 0.2s;
+}
+.account-item:hover {
+    background-color: #f0f0f0;
+    border-radius: 8px;
+}
+
+.account-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.account-item button {
+    background: none;
     border: none;
-    background-color: transparent;
+    color: #333;
+    font-size: 16px;
     cursor: pointer;
+    transition: color 0.2s;
+}
+
+.account-item button:hover {
+    color: #007bff;
 }
 
 .season-title {
@@ -418,16 +448,16 @@ nav ul li a:hover::before {
     padding: 2rem 1rem;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
     gap: 2rem;
 }
 
 .tooltip {
     display: none;
-    position: absolute;
-    top: 50%;
-    left: 105%;
-    transform: translateY(-50%);
+    position: absolute; 
+    top: 50%; 
+    left: 105%; 
+    transform: translateY(-50%); 
     background-color: #f9f9f9;
     color: #333;
     padding: 20px;
@@ -438,7 +468,6 @@ nav ul li a:hover::before {
     transition: all 0.3s ease;
     font-size: 14px;
 }
-
 .anime-card:hover .tooltip {
     display: flex;
     flex-direction: row;
@@ -520,6 +549,9 @@ nav ul li a:hover::before {
 
 
 .anime-card {
+    width: calc(25% - 20px);
+    margin: 10px;
+    display: block;
     width: 300px;
     height: 400px;
     border-radius: 15px;
@@ -540,7 +572,6 @@ nav ul li a:hover::before {
     width: 320px;
     height: 400px;
     position: relative;
-    overflow: hidden;
     margin-bottom: 10px; 
 }
 
@@ -586,6 +617,7 @@ nav ul li a:hover::before {
     bottom: 0;
     width: 100%;
     padding: 1rem;
+    height: 70px;
     text-align: center;
     color: hsl(0, 100%, 99%);
     font-weight: bold;
@@ -650,12 +682,22 @@ nav ul li a:hover::before {
     justify-content: space-around;
 }
 
-.theme-togle .fa-sun {
+.theme-togle button {
+    border-radius: 50%;
+    display: flex;
+    border: none;
+    width: 32px;
+    height: 32px;
+    align-items: center;
+    justify-content: space-around;
+
+}
+.theme-togle .sun-icon {
     cursor: pointer;
     background-color: red;
 }
 
-.theme-togle .fa-moon {
+.theme-togle .moon-icon {
     cursor: pointer;
     background-color: transparent;
 }
@@ -670,16 +712,15 @@ nav ul li a:hover::before {
     justify-content: space-around;
 }
 
-.fa-sun img {
+.sun-icon img {
     width: auto;
     height: 14px;
 }
 
-.fa-moon img {
+.moon-icon img {
     width: auto;
     height: 14px;
 }
-
 
 .ribbon-right {
     position: absolute;
@@ -708,10 +749,11 @@ nav ul li a:hover::before {
 
 .filter {
     display: grid;
-    width: 940px;
+    width: 1280px;
     row-gap: 20px;
     column-gap: 20px;
     grid-template-columns: auto;
+    margin-left: 50px;
     text-align: center;
     margin-bottom: 2rem;
 }
@@ -1007,4 +1049,97 @@ nav ul li a:hover::before {
     border-radius: 5px; 
     transition: width 0.3s ease; 
 }
+
+.fa-cog:before{
+    font-size: 20px;
+}
+
+.fa-sign-out-alt:before {
+    font-size: 20px;
+}
+
+.fa-user-circle:before {
+    font-size: 20px;
+}
+
+.pagination {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    gap: 5px;
+    width: 600px;
+}
+#page-numbers{
+    display: flex;
+    width: 400px;
+    justify-content: space-between;
+}
+.pagination-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    color: #000;
+    border: none;
+    padding: 8px 12px;
+    margin: 0 2px;
+    cursor: pointer;
+    border-radius: 50%;
+    min-width: 35px;
+    min-height: 35px;
+    transition: all 0.3s ease;
+}
+
+.pagination-button:hover {
+    background-color: #f0f0f0;
+}
+
+.pagination-button.active {
+    background-color: #ff0000;
+    color: white;
+}
+
+.pagination-button.arrow {
+    font-weight: bold;
+}
+
+.pagination-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pagination-dots {
+    margin: 0 5px;
+}
+
+.dark-theme .pagination-button {
+    color: #fff;
+}
+
+.dark-theme .pagination-button:hover {
+    background-color: #404040;
+}
+
+.dark-theme .pagination-button.active {
+    background-color: #ff0000;
+}
+
+.pagination-button.arrow:hover {
+    background-color: #ff0000;
+    color: white;
+}
+.pagination-button:hover{
+    background-color: #ff0000;
+    color: white;
+}
+
+.dark-theme .pagination-button.arrow:hover {
+    background-color: #ff0000;
+    color: white;
+}
+
+
+
 
