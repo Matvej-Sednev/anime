@@ -51,6 +51,10 @@
                         <i class="fas fa-cog account-icon"></i> 
                         <button>Настройки</button>
                     </div>
+                    <div class="account-item theme-switcher">
+                        <i class="fas fa-moon account-icon"></i>
+                        <button id="theme-toggle">Тёмная тема</button>
+                    </div>
                     <div class="account-item">
                         <i class="fas fa-sign-out-alt account-icon"></i> 
                         <button>Выход</button>
@@ -119,124 +123,196 @@
   </div>
 
 <h1 class="season-title">Аниме Сезона</h1>
-
-<div class="main-content">
-    <div class="anime-card card container video-container">
-        <img id="posterImage" src="src/img/Solo.jpg" alt="Poster Image">
-        <video muted id="myVideo" type="video/mp4" disablePictureInPicture="true">
-            <source src="src/img/58800769ab1d87cca5f2846001f64095.1080.mp4">
-        </video>
-        <div class="anime-card-title">Поднятие уровня в одиночку</div>
-        <div class="tooltip">
-            <div class="tooltip-header">
-                <span>Финальный сезон, часть 2, сейчас в эфире</span>
-                <div class="rating-bar">
-                    <div class="rating-fill" style="width: 92%;"></div>
+<div class="season-slider">
+    <button class="season-nav season-prev" aria-label="Предыдущие аниме">&lt;</button>
+    <div class="season-slides">
+        <div class="anime-card card container video-container">
+            <img id="posterImage" src="src/img/Solo.jpg" alt="Poster Image">
+            <video muted id="myVideo" type="video/mp4" disablePictureInPicture="true">
+                <source src="src/img/58800769ab1d87cca5f2846001f64095.1080.mp4">
+            </video>
+            <div class="anime-card-title">Поднятие уровня в одиночку</div>
+            <div class="tooltip">
+                <div class="tooltip-header">
+                    <span>Финальный сезон, часть 2, сейчас в эфире</span>
+                    <div class="rating-bar">
+                        <div class="rating-fill" style="width: 92%;"></div>
+                    </div>
+                    <span class="rating-value">92%</span>
                 </div>
-                <span class="rating-value">92%</span>
+                <div class="studio">A-1 Pictures</div>
+                <div class="info">Сериал • 12 эпизодов</div>
+                <div class="tags">
+                    <span class="tag">фэнтези</span>
+                    <span class="tag">приключения</span>
+                </div>
+                <div class="catalog-description">Поднятие уровня в одиночку - это аниме о...</div>
             </div>
-            <div class="studio">A-1 Pictures</div>
-            <div class="info">Сериал • 12 эпизодов</div>
-            <div class="tags">
-                <span class="tag">фэнтези</span>
-                <span class="tag">приключения</span>
+        </div>
+        <div class="anime-card card container video-container">
+            <img src="/src/img/friren.jpg" alt="Poster Image">
+            <video muted type="video/mp4" disablePictureInPicture="true">
+                <source src="src/img/918d060df13b64b7d02fbd689b0d1e5c.1080.mp4">
+            </video>
+            <div class="anime-card-title">Провожающая в последний путь фрирен</div>
+            <div class="tooltip">
+                <div class="tooltip-header">
+                    <span>Описание: Провожающая в последний путь фрирен</span>
+                    <div class="rating-bar">
+                        <div class="rating-fill" style="width: 90%;"></div>
+                    </div>
+                    <span class="rating-value">90%</span>
+                </div>
+                <div class="studio">White Fox</div>
+                <div class="info">Сериал • 20 эпизодов</div>
+                <div class="tags">
+                    <span class="tag">фэнтези</span>
+                    <span class="tag">драма</span>
+                </div>
+                <div class="catalog-description">Провожающая в последний путь фрирен - это аниме о...</div>
             </div>
-            <div class="catalog-description">Поднятие уровня в одиночку - это аниме о...</div>
+        </div>
+        <div class="anime-card container video-container">
+            <img src="/src/img/Dandan.jpeg" alt="Poster Image">
+            <video muted type="video/mp4" disablePictureInPicture="true">
+                <source src="src/img/ebc90f4e918d650f2b817093f7c02dc0.1080.mp4">
+            </video>
+            <div class="anime-card-title">ДанДаДан</div>
+            <div class="tooltip">
+                <div class="tooltip-header">
+                    <span>Описание: ДанДаДан</span>
+                    <div class="rating-bar">
+                        <div class="rating-fill" style="width: 85%;"></div>
+                    </div>
+                    <span class="rating-value">85%</span>
+                </div>
+                <div class="studio">MAPPA</div>
+                <div class="info">Сериал • 12 эпизодов</div>
+                <div class="tags">
+                    <span class="tag">экшен</span>
+                    <span class="tag">комедия</span>
+                </div>
+                <div class="catalog-description">ДанДаДан - это аниме о...</div>
+            </div>
+        </div>
+        <div class="anime-card container video-container">
+            <img src="/src/img/danger.jpeg" alt="Poster Image">
+            <video muted type="video/mp4" disablePictureInPicture="true">
+                <source src="src/img/debac080bb21e736c8bf7995db7040f5.1080.mp4">
+            </video>
+            <div class="anime-card-title">Опасность в моем сердце</div>
+            <div class="tooltip">
+                <div class="tooltip-header">
+                    <span>Описание: Опасность в моем сердце</span>
+                    <div class="rating-bar">
+                        <div class="rating-fill" style="width: 88%;"></div>
+                    </div>
+                    <span class="rating-value">88%</span>
+                </div>
+                <div class="studio">CloverWorks</div>
+                <div class="info">Сериал • 12 эпизодов</div>
+                <div class="tags">
+                    <span class="tag">романтика</span>
+                    <span class="tag">драма</span>
+                </div>
+                <div class="catalog-description">Опасность в моем сердце - это аниме о...</div>
+            </div>
+        </div>
+        <div class="anime-card container video-container">
+            <img src="/src/img/re-zero.jpeg" alt="Poster Image">
+            <video muted type="video/mp4" disablePictureInPicture="true">
+                <source src="src/img/rezero_trailer_1920.mp4">
+            </video>
+            <div class="anime-card-title">Re: Zero</div>
+            <div class="tooltip">
+                <div class="tooltip-header">
+                    <span>Описание: Re: Zero</span>
+                    <div class="rating-bar">
+                        <div class="rating-fill" style="width: 95%;"></div>
+                    </div>
+                    <span class="rating-value">95%</span>
+                </div>
+                <div class="studio">White Fox</div>
+                <div class="info">Сериал • 50 эпизодов</div>
+                <div class="tags">
+                    <span class="tag">фэнтези</span>
+                    <span class="tag">психология</span>
+                </div>
+                <div class="catalog-description">Re: Zero - это аниме о...</div>
+            </div>
+        </div>
+        <div class="anime-card container video-container">
+            <img src="/src/img/bleach.jpg" alt="Poster Image">
+            <video muted type="video/mp4" disablePictureInPicture="true">
+                <source src="src/img/bleach.mp4">
+            </video>
+            <div class="anime-card-title">Блич: Тысячелетняя кровавая война</div>
+            <div class="tooltip">
+                <div class="tooltip-header">
+                    <span>Финальный сезон</span>
+                    <div class="rating-bar">
+                        <div class="rating-fill" style="width: 91%;"></div>
+                    </div>
+                    <span class="rating-value">91%</span>
+                </div>
+                <div class="studio">Pierrot</div>
+                <div class="info">Сериал • 13 эпизодов</div>
+                <div class="tags">
+                    <span class="tag">экшен</span>
+                    <span class="tag">сверхъестественное</span>
+                </div>
+            </div>
+        </div>
+        <div class="anime-card container video-container">
+            <img src="/src/img/bleach.jpg" alt="Poster Image">
+            <video muted type="video/mp4" disablePictureInPicture="true">
+                <source src="src/img/bleach.mp4">
+            </video>
+            <div class="anime-card-title">Блич: Тысячелетняя кровавая война</div>
+            <div class="tooltip">
+                <div class="tooltip-header">
+                    <span>Финальный сезон</span>
+                    <div class="rating-bar">
+                        <div class="rating-fill" style="width: 91%;"></div>
+                    </div>
+                    <span class="rating-value">91%</span>
+                </div>
+                <div class="studio">Pierrot</div>
+                <div class="info">Сериал • 13 эпизодов</div>
+                <div class="tags">
+                    <span class="tag">экшен</span>
+                    <span class="tag">сверхъестественное</span>
+                </div>
+            </div>
+        </div>
+        <div class="anime-card container video-container">
+            <img src="/src/img/jujutsu.jpg" alt="Poster Image">
+            <video muted type="video/mp4" disablePictureInPicture="true">
+                <source src="src/img/jujutsu.mp4">
+            </video>
+            <div class="anime-card-title">Магическая битва</div>
+            <div class="tooltip">
+                <div class="tooltip-header">
+                    <span>2-й сезон, сейчас в эфире</span>
+                    <div class="rating-bar">
+                        <div class="rating-fill" style="width: 94%;"></div>
+                    </div>
+                    <span class="rating-value">94%</span>
+                </div>
+                <div class="studio">MAPPA</div>
+                <div class="info">Сериал • 23 эпизода</div>
+                <div class="tags">
+                    <span class="tag">экшен</span>
+                    <span class="tag">сверхъестественное</span>
+                </div>
+                <div class="catalog-description">Магическая битва - это аниме о...</div>
+            </div>
         </div>
     </div>
-     <div class="anime-card card container video-container">
-        <img src="/src/img/friren.jpg" alt="Poster Image">
-        <video muted type="video/mp4" disablePictureInPicture="true">
-            <source src="src/img/918d060df13b64b7d02fbd689b0d1e5c.1080.mp4">
-        </video>
-        <div class="anime-card-title">Провожающая в последний путь фрирен</div>
-        <div class="tooltip">
-            <div class="tooltip-header">
-                <span>Описание: Провожающая в последний путь фрирен</span>
-                <div class="rating-bar">
-                    <div class="rating-fill" style="width: 90%;"></div>
-                </div>
-                <span class="rating-value">90%</span>
-            </div>
-            <div class="studio">White Fox</div>
-            <div class="info">Сериал • 20 эпизодов</div>
-            <div class="tags">
-                <span class="tag">фэнтези</span>
-                <span class="tag">драма</span>
-            </div>
-            <div class="catalog-description">Провожающая в последний путь фрирен - это аниме о...</div>
-        </div>
-    </div>
-     <div class="anime-card container video-container">
-        <img src="/src/img/Dandan.jpeg" alt="Poster Image">
-        <video muted type="video/mp4" disablePictureInPicture="true">
-            <source src="src/img/ebc90f4e918d650f2b817093f7c02dc0.1080.mp4">
-        </video>
-        <div class="anime-card-title">ДанДаДан</div>
-        <div class="tooltip">
-            <div class="tooltip-header">
-                <span>Описание: ДанДаДан</span>
-                <div class="rating-bar">
-                    <div class="rating-fill" style="width: 85%;"></div>
-                </div>
-                <span class="rating-value">85%</span>
-            </div>
-            <div class="studio">MAPPA</div>
-            <div class="info">Сериал • 12 эпизодов</div>
-            <div class="tags">
-                <span class="tag">экшен</span>
-                <span class="tag">комедия</span>
-            </div>
-            <div class="catalog-description">ДанДаДан - это аниме о...</div>
-        </div>
-    </div>
-     <div class="anime-card container video-container">
-        <img src="/src/img/danger.jpeg" alt="Poster Image">
-        <video muted type="video/mp4" disablePictureInPicture="true">
-            <source src="src/img/debac080bb21e736c8bf7995db7040f5.1080.mp4">
-        </video>
-        <div class="anime-card-title">Опасность в моем сердце</div>
-        <div class="tooltip">
-            <div class="tooltip-header">
-                <span>Описание: Опасность в моем сердце</span>
-                <div class="rating-bar">
-                    <div class="rating-fill" style="width: 88%;"></div>
-                </div>
-                <span class="rating-value">88%</span>
-            </div>
-            <div class="studio">CloverWorks</div>
-            <div class="info">Сериал • 12 эпизодов</div>
-            <div class="tags">
-                <span class="tag">романтика</span>
-                <span class="tag">драма</span>
-            </div>
-            <div class="catalog-description">Опасность в моем сердце - это аниме о...</div>
-        </div>
-    </div>
-     <div class="anime-card container video-container">
-        <img src="/src/img/re-zero.jpeg" alt="Poster Image">
-        <video muted type="video/mp4" disablePictureInPicture="true">
-            <source src="src/img/rezero_trailer_1920.mp4">
-        </video>
-        <div class="anime-card-title">Re: Zero</div>
-        <div class="tooltip">
-            <div class="tooltip-header">
-                <span>Описание: Re: Zero</span>
-                <div class="rating-bar">
-                    <div class="rating-fill" style="width: 95%;"></div>
-                </div>
-                <span class="rating-value">95%</span>
-            </div>
-            <div class="studio">White Fox</div>
-            <div class="info">Сериал • 50 эпизодов</div>
-            <div class="tags">
-                <span class="tag">фэнтези</span>
-                <span class="tag">психология</span>
-            </div>
-            <div class="catalog-description">Re: Zero - это аниме о...</div>
-        </div>
-    </div>
+    <button class="season-nav season-next" aria-label="Следующие аниме">&gt;</button>
 </div>
+
+
 <h3 class="anime-catalog">Каталог аниме</h3>
 <div class="filter">
     <div class="filter-select">
@@ -460,7 +536,8 @@
             <div class="catalog-description">Синий Экзорцист - это аниме о...</div>
         </div>
     </div>
-    <div class="anime-card container video-container" data-season="Зима 2024" data-description="Синий Экзорцист" data-all_description="Тип: Сериал">        <img src="src/img/Exorcist.jpg" alt="Poster Image">
+    <div class="anime-card container video-container" data-season="Зима 2024" data-description="Синий Экзорцист" data-all_description="Тип: Сериал">        
+        <img src="src/img/Exorcist.jpg" alt="Poster Image">
         <video muted type="video/mp4" disablePictureInPicture="true">
             <source src="src/img/ebc90f4e918d650f2b817093f7c02dc0.1080.mp4">
         </video>

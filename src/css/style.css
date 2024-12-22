@@ -372,6 +372,7 @@ nav ul li a:hover::before {
     position: absolute;
     right: 0;
     top: 50px;
+    width: 200px;
     background-color: white;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -445,11 +446,14 @@ nav ul li a:hover::before {
 }
 
 .main-content {
-    padding: 2rem 1rem;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 2rem;
+    width: 100%;
+    max-width: 1440px;
+    padding: 20px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    justify-content: center;
 }
 
 .tooltip {
@@ -480,7 +484,14 @@ nav ul li a:hover::before {
     font-size: 16px;
     margin-bottom: 10px;
 }
-
+tooltip.tooltip-left {
+    left: auto;
+    right: 100%;
+    transform: translateX(-20px);
+}
+anime-card:hover .tooltip.tooltip-left {
+    transform: translateX(0);
+}
 .studio {
     margin-top: 5px;
     font-style: italic;
@@ -1138,6 +1149,188 @@ nav ul li a:hover::before {
 .dark-theme .pagination-button.arrow:hover {
     background-color: #ff0000;
     color: white;
+}
+
+.season-slider {
+    width: calc(100% - 120px);
+    max-width: 1700px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    padding: 20px 0;
+}
+
+.season-slides {
+    overflow: hidden;
+    display: flex;
+    gap: 12px;
+    transition: transform 0.3s ease-in-out;
+    width: max-content;
+    padding-right: 60px;
+}
+
+.anime-card {
+    flex: 0 0 calc((100% - 60px) / 6);
+    min-width: 240px;
+    max-width: 260px;
+    margin: 0;
+}
+
+.season-slides-wrapper {
+    overflow: hidden;
+    margin: 0 -10px;
+    padding: 0 10px;
+}
+
+.season-prev {
+    left: 15px;
+}
+
+.season-next {
+    right: 15px;
+}
+
+@media screen and (max-width: 1800px) {
+    .anime-card {
+        flex: 0 0 calc((100% - 75px) / 6);
+        min-width: 240px;
+    }
+}
+
+@media screen and (max-width: 1600px) {
+    .anime-card {
+        flex: 0 0 calc((100% - 60px) / 5);
+    }
+}
+
+@media screen and (max-width: 1366px) {
+    .anime-card {
+        flex: 0 0 calc((100% - 45px) / 4);
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .anime-card {
+        flex: 0 0 calc((100% - 30px) / 3);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .anime-card {
+        flex: 0 0 calc((100% - 15px) / 2);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .anime-card {
+        flex: 0 0 100%;
+    }
+}
+
+.season-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.7);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+.season-prev::after,
+.season-next::after {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-style: solid;
+    border-color: white;
+    border-width: 2px 2px 0 0;
+}
+
+.season-prev::after {
+    transform: rotate(-135deg);
+    margin-left: 5px;
+}
+
+.season-next::after {
+    transform: rotate(45deg);
+    margin-right: 5px;
+}
+
+
+.season-nav:hover {
+    background: rgba(255, 0, 0, 0.8);
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* Стили для неактивных кнопок */
+.season-nav:disabled,
+.season-nav.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+/* Стили для блока фильтров в темной теме */
+.dark-theme .filter {
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.dark-theme select,
+.dark-theme input[type="text"] {
+    background-color: #2d2d2d;
+    color: #ffffff;
+    border: 1px solid #404040;
+    border-radius: 5px;
+}
+
+.dark-theme select:focus,
+.dark-theme input[type="text"]:focus {
+    border-color: #ff0000;
+    outline: none;
+}
+
+.dark-theme select option {
+    background-color: #2d2d2d;
+    color: #ffffff;
+}
+
+.dark-theme .filter-title {
+    color: #ff0000;
+}
+
+.dark-theme .range-slider {
+    background-color: #404040;
+}
+
+.dark-theme .range-slider::-webkit-slider-thumb {
+    background-color: #ff0000;
+}
+
+.dark-theme .range-slider::-moz-range-thumb {
+    background-color: #ff0000;
+}
+
+.dark-theme .filter-button {
+    background-color: #2d2d2d;
+    color: #ffffff;
+    border: 1px solid #404040;
+}
+
+.dark-theme .filter-button:hover {
+    background-color: #ff0000;
+    border-color: #ff0000;
 }
 
 

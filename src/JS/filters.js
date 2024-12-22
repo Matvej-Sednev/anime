@@ -153,10 +153,31 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function (){
     const profileButton = document.getElementById('profile_button');
     const accountDropdown = document.getElementById('account_dropdown');
+    const themeToggleInAccount = document.querySelector('.inside_account #theme-toggle');
 
     profileButton.addEventListener('click', () => {
-        // Переключаем видимость выпадающего меню
         accountDropdown.style.display = accountDropdown.style.display === 'block' ? 'none' : 'block';
+    });
+
+    // Обработчик для переключения темы внутри выпадающего меню аккаунта
+    themeToggleInAccount.addEventListener('click', function(e) {
+        e.stopPropagation(); // Предотвращаем закрытие меню при клике
+        const body = document.body;
+        const themeIcon = this.previousElementSibling;
+        
+        if (body.classList.contains('dark-theme')) {
+            body.classList.remove('dark-theme');
+            this.textContent = 'Тёмная тема';
+            themeIcon.classList.remove('fa-sun');
+            themeIcon.classList.add('fa-moon');
+        } else {
+            body.classList.add('dark-theme');
+            this.textContent = 'Светлая тема';
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        }
+        
+        localStorage.setItem('theme', body.classList.contains('dark-theme') ? 'dark' : 'light');
     });
 
     // Закрытие выпадающего меню при клике вне его
@@ -355,6 +376,30 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+    function updateTooltipPosition() {
+        const tooltips = document.querySelectorAll('.tooltip');
+        
+        tooltips.forEach(tooltip => {
+            const card = tooltip.closest('.anime-card');
+            const cardRect = card.getBoundingClientRect();
+            const tooltipWidth = tooltip.offsetWidth;
+            
+            // Проверяем, хватает ли места справа
+            if (cardRect.right + tooltipWidth > window.innerWidth) {
+                tooltip.classList.add('tooltip-left');
+            } else {
+                tooltip.classList.remove('tooltip-left');
+            }
+        });
+    }
+    
+    // Вызываем функцию при наведении на карточку
+    document.querySelectorAll('.anime-card').forEach(card => {
+        card.addEventListener('mouseenter', updateTooltipPosition);
+    });
+    
+    // Обновляем позиции при изменении размера окна
+    window.addEventListener('resize', updateTooltipPosition);
 });
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -448,3 +493,114 @@ document.addEventListener('DOMContentLoaded', () => {
 
     renderPage(currentPage);
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const slider = document.querySelector('.season-slider');
+    const slides = document.querySelector('.season-slides');
+    const cards = Array.from(slides.children);
+    const prevButton = document.querySelector('.season-prev');
+    const nextButton = document.querySelector('.season-next');
+    
+    let currentIndex = 0;
+    let cardWidth;
+    let cardsPerView;
+    
+    // Функция обновления размеров
+    function updateDimensions() {
+        // Получаем актуальную ширину карточки с учетом отступов
+        cardWidth = cards[0].offsetWidth + parseInt(window.getComputedStyle(cards[0]).marginRight);
+        // Вычисляем количество видимых карточек
+        cardsPerView = Math.floor(slider.offsetWidth / cardWidth);
+        
+        // Проверяем и корректируем текущий индекс
+        if (currentIndex > cards.length - cardsPerView) {
+            currentIndex = cards.length - cardsPerView;
+            moveSlides(0);
+        }
+    }
+    
+    // Функция для перемещения слайдов
+    function moveSlides(direction) {
+        currentIndex = Math.max(0, Math.min(currentIndex + direction, cards.length - cardsPerView));
+        slides.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+        
+        // Обновление состояния кнопок
+        prevButton.style.opacity = currentIndex === 0 ? "0.5" : "1";
+        nextButton.style.opacity = currentIndex >= cards.length - cardsPerView ? "0.5" : "1";
+        prevButton.style.pointerEvents = currentIndex === 0 ? "none" : "auto";
+        nextButton.style.pointerEvents = currentIndex >= cards.length - cardsPerView ? "none" : "auto";
+    }
+    
+    // Обработчики для кнопок
+    prevButton.addEventListener('click', () => moveSlides(-1));
+    nextButton.addEventListener('click', () => moveSlides(1));
+    
+    // Обработчик изменения размера окна
+    window.addEventListener('resize', () => {
+        updateDimensions();
+        moveSlides(0); // Обновляем позицию без смещения
+    });
+    
+    // Инициализация слайдера
+    updateDimensions();
+    moveSlides(0);
+    
+    // Добавляем поддержку свайпов для мобильных устройств
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    slides.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+    });
+    
+    slides.addEventListener('touchmove', (e) => {
+        touchEndX = e.touches[0].clientX;
+    });
+    
+    slides.addEventListener('touchend', () => {
+        const swipeDistance = touchStartX - touchEndX;
+        if (Math.abs(swipeDistance) > 50) { // Минимальное расстояние для свайпа
+            if (swipeDistance > 0) {
+                moveSlides(1); // Свайп влево
+            } else {
+                moveSlides(-1); // Свайп вправо
+            }
+        }
+    });
+});
+
+// Добавляем обработчик для переключения темы
+document.getElementById('theme-toggle').addEventListener('click', function() {
+    const body = document.body;
+    const themeIcon = this.previousElementSibling; // Получаем иконку
+    
+    if (body.classList.contains('dark-theme')) {
+        body.classList.remove('dark-theme');
+        this.textContent = 'Тёмная тема';
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+    } else {
+        body.classList.add('dark-theme');
+        this.textContent = 'Светлая тема';
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+    }
+    
+    // Сохраняем выбор пользователя
+    localStorage.setItem('theme', body.classList.contains('dark-theme') ? 'dark' : 'light');
+});
+
+// Проверяем сохраненную тему при загрузке
+document.addEventListener('DOMContentLoaded', function() {
+    const savedTheme = localStorage.getItem('theme');
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = themeToggle.previousElementSibling;
+    
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-theme');
+        themeToggle.textContent = 'Светлая тема';
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+    }
+});
+
