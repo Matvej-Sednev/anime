@@ -28,86 +28,85 @@ header {
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.footer {
-    width: 100%;
-    height: 100px;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    padding: 1rem;
+footer {
     background-color: #ffffff;
-    color: #ff0000;
-    font-size: 0.9rem;
-    border-top: 1px solid #f0f0f0;
+    color: #f00;
+    padding: 20px 0;
+    font-family: sans-serif;
+    width: 100vw;
 }
 
-.footer-top {
+.footer-container {
     display: flex;
-}
-
-.footer__logo {
-    display: flex;
-    width: auto;
+    flex-wrap: wrap;
+    justify-content: space-between;
     align-items: center;
-    text-align: center;
-    margin-right: 9rem;
-    font-size: 20px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-.footer__logo .logo__caption {
-    font-size: 0.85rem;
-    color: #4a4a4a;
-}
-
-.footer__text {
-    flex-grow: 1;
-    font-size: 2vh;
-    color: #ff0000;
-}
-
-.footer__text a.link-w {
-    color: #ff0000;
-    text-decoration: underline;
-    transition: color 0.3s;
-}
-
-.footer__text a.link-w:hover {
-    color: #d10000;
-}
-
-.footer-nav {
+.footer-logo {
     display: flex;
-    list-style: none;
-    gap: 2rem;
-    margin-right: 9rem;
+    align-items: center;
+    font-size: 1.5rem;
+    margin-left: 30px;
 }
 
-.footer-nav ul {
-    list-style: none;
+.footer-logo img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
 }
 
-.footer-nav ul li a {
+.footer-links nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.footer-links nav ul li {
+    margin-right: 20px;
+}
+.footer-links nav ul li a {
     color: #ff0000;
     text-decoration: none;
-    font-weight: 500;
-    position: relative;
-    transition: color 0.3s;
 }
 
-.footer-nav ul li a::before {
-    content: "";
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: #ff0000;
-    transition: 0.3s;
+.footer-social a {
+    color: #ff0000;
+    font-size: 1.2rem;
+    margin-left: 10px;
+    text-decoration: none;
+
 }
 
-.footer-nav ul li a:hover::before {
+.footer-social a i {
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.footer-copyright {
     width: 100%;
+    text-align: center;
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+    .footer-logo{
+       margin-bottom: 15px;
+    }
+     .footer-links, .footer-social{
+        margin-bottom: 15px;
+    }
 }
 
 .logo {
@@ -186,7 +185,7 @@ header {
     width: 50%;
     background-image: linear-gradient(-450deg, rgba(255, 255, 255, 0.01) 10%, rgba(0, 0, 0, 0.9) 50%);
     height: 100%;
-    padding-top: 10%;
+    padding-top: 5%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -195,7 +194,7 @@ header {
 .logo-description {
     width: 400px;
     height: 200px;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
     margin-left: 5vw;
 }
 
@@ -220,20 +219,9 @@ header {
 }
 
 
-#prev, #next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(249, 249, 249, 0);
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-size: 2em;
-    z-index: 1;
-}
 
 #prev {
-    left: 5px;
+    left: 15px;
 }
 
 #prev img {
@@ -337,26 +325,36 @@ nav ul li a:hover::before {
 }
 
 .profile-button {
+    display: flex;
     background: none;
     font-size: 24px;
+    justify-content: center;
+    align-items: end;
+    width: 34px;
+    height: 34px;
     color: red;
-    border: none;
+    border: 1.2px solid #ff0000;
+    border-radius: 20px;
     cursor: pointer;
     outline: none;
+    overflow: hidden;
     transition: transform 0.2s;
 }
 
-.profile-button:hover {
-    transform: scale(1.1);
-}
 
 .profile-button .account-icon {
-    font-size: 24px;
-    color: red;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: flex-end;
 }
 
 .profile-button:hover .account-icon {
     color: darkred;
+}
+.profile_account{
+    display: flex;
+    align-items: end;
 }
 
 .profile_account img {
@@ -400,6 +398,13 @@ nav ul li a:hover::before {
 .inside_account {
     padding: 10px;
 }
+.fas {
+    display: flex; 
+    align-items: center;  
+    width: 24px; 
+    height: 24px; 
+    font-size: 20px;
+  }
 
 .account-item {
     display: flex;
@@ -411,13 +416,19 @@ nav ul li a:hover::before {
     background-color: #f0f0f0;
     border-radius: 8px;
 }
-
+.account-item i {
+    margin-right: 10px;
+}
 .account-icon {
     width: 24px;
     height: 24px;
-    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-
+.fa-user::before{
+    font-size: 24px;
+}
 .account-item button {
     background: none;
     border: none;
@@ -428,7 +439,7 @@ nav ul li a:hover::before {
 }
 
 .account-item button:hover {
-    color: #007bff;
+    color: #ff0000;
 }
 
 .season-title {
@@ -467,7 +478,7 @@ nav ul li a:hover::before {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-    z-index: 10;
+    z-index: 999;
     width: 350px;
     transition: all 0.3s ease;
     font-size: 14px;
@@ -484,7 +495,7 @@ nav ul li a:hover::before {
     font-size: 16px;
     margin-bottom: 10px;
 }
-tooltip.tooltip-left {
+.tooltip.tooltip-left {
     left: auto;
     right: 100%;
     transform: translateX(-20px);
@@ -637,11 +648,10 @@ anime-card:hover .tooltip.tooltip-left {
 
 .catalog {
     display: grid;
-    width: 1280px;
+    width: 1080px;
     row-gap: 20px;
     column-gap: 20px;
     grid-template-columns: auto auto auto auto;
-
     margin-bottom: 5%;
 }
 
@@ -676,6 +686,18 @@ anime-card:hover .tooltip.tooltip-left {
     color: black;
     cursor: pointer;
     border-radius: 20px;
+}
+.pagination-nav{
+    top: 50%;
+    border: none;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.7);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 100;
 }
 
 .theme-togle {
@@ -745,22 +767,9 @@ anime-card:hover .tooltip.tooltip-left {
 
 }
 
-.all-filter .button-filter {
-    background-color: transparent;
-    border-radius: 20px;
-    margin-top: 10px;
-}
-
-.all-filter img {
-    border-radius: 10px;
-    width: 35px;
-    height: 35px;
-    box-shadow: 2px 2px 5px 0px rgba(184, 184, 184, 0.5);
-}
-
 .filter {
     display: grid;
-    width: 1280px;
+    width: 1080px;
     row-gap: 20px;
     column-gap: 20px;
     grid-template-columns: auto;
@@ -774,7 +783,7 @@ anime-card:hover .tooltip.tooltip-left {
     height: 40px;
     width: 180px;
     border-radius: 5px;
-    box-shadow: 2px 2px 5px 0 rgba(184, 184, 184, 0.5);
+    color: gray;
 }
 
 .select-filtr input {
@@ -815,16 +824,14 @@ anime-card:hover .tooltip.tooltip-left {
     background-color: #1e1e1e;
     color: #ff0000;
 }
-.dark-theme .select-filtr *{
+
+.dark-theme .select-filtr {
     background-color: #1e1e1e;
-    color: white;
-    box-shadow: none;
 }
 
 .dark-theme .anime-card {
     background: rgba(255, 255, 255, 0.1);
     color: #ffffff;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
 }
 
 .dark-theme .search-input {
@@ -1048,7 +1055,6 @@ anime-card:hover .tooltip.tooltip-left {
 .rating-bar {
     width: 100px; 
     height: 10px; 
-    background-color: #e0e0e0;
     border-radius: 5px; 
     margin-top: 5px; 
     position: relative; 
@@ -1056,23 +1062,47 @@ anime-card:hover .tooltip.tooltip-left {
 
 .rating-fill {
     height: 100%; 
-    background-color: #ff0000; 
     border-radius: 5px; 
     transition: width 0.3s ease; 
+    background-color: #ff0000;
+}
+
+.rating-fill.orange {
+    background-color: orange; 
+}
+
+.rating-fill.red {
+    background-color: red; 
+}
+
+.rating-fill.green {
+    background-color: green; 
 }
 
 .fa-cog:before{
+    display: flex;
+    align-items: center;
     font-size: 20px;
+    width: 24px;
+    height: 24px;
 }
 
+
 .fa-sign-out-alt:before {
+    display: flex;
+    align-items: center;
     font-size: 20px;
+    width: 24px;
+    height: 24px;
 }
 
 .fa-user-circle:before {
+    display: flex;
+    align-items: center;
     font-size: 20px;
+    width: 24px;
+    height: 24px;
 }
-
 .pagination {
     display: flex;
     flex-direction: row;
@@ -1094,13 +1124,30 @@ anime-card:hover .tooltip.tooltip-left {
     background-color: transparent;
     color: #000;
     border: none;
-    padding: 8px 12px;
     margin: 0 2px;
     cursor: pointer;
     border-radius: 50%;
     min-width: 35px;
     min-height: 35px;
     transition: all 0.3s ease;
+}
+
+.next_arrow::after{
+    transform: rotate(45deg);
+    margin-right: 5px;
+}
+.prev_arrow::after{
+    transform: rotate(-135deg);
+    margin-left: 5px;
+}
+.next_arrow::after,
+.prev_arrow::after{
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-style: solid;
+    border-width: 2px 2px 0 0;
 }
 
 .pagination-button:hover {
@@ -1114,6 +1161,7 @@ anime-card:hover .tooltip.tooltip-left {
 
 .pagination-button.arrow {
     font-weight: bold;
+    border-color: white;
 }
 
 .pagination-button:disabled {
@@ -1175,7 +1223,27 @@ anime-card:hover .tooltip.tooltip-left {
     max-width: 260px;
     margin: 0;
 }
-
+.favorite-button{
+    display: flex;
+    background-color: #ff0000;
+    width: 30px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+    z-index: 100;
+    position: absolute;
+    right: 0;
+    border-radius: 0 15px 0 15px;
+    font-size: 20px;
+    align-items: center;
+    justify-content: center;
+}
+  .favorite-button .far {
+    color: rgb(255, 255, 255); /*  Цвет по умолчанию  */
+  }
+  .favorite-button .fas {
+    background-color: rgb(252, 252, 252); /*  Цвет, когда сердечко заполнено */
+  }
 .season-slides-wrapper {
     overflow: hidden;
     margin: 0 -10px;
@@ -1189,7 +1257,32 @@ anime-card:hover .tooltip.tooltip-left {
 .season-next {
     right: 15px;
 }
+.anons-prev {
+    left: 15px;
+}
 
+.anons-next {
+    right: 15px;
+}
+.anons-prev::after,
+.anons-next::after {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-style: solid;
+    border-color: white;
+    border-width: 2px 2px 0 0;
+}
+.anons-prev::after {
+    transform: rotate(-135deg);
+    margin-left: 5px;
+}
+
+.anons-next::after {
+    transform: rotate(45deg);
+    margin-right: 5px;
+}
 @media screen and (max-width: 1800px) {
     .anime-card {
         flex: 0 0 calc((100% - 75px) / 6);
@@ -1271,27 +1364,21 @@ anime-card:hover .tooltip.tooltip-left {
     transform: translateY(-50%) scale(1.1);
 }
 
-/* Стили для неактивных кнопок */
 .season-nav:disabled,
 .season-nav.disabled {
     opacity: 0.5;
     cursor: not-allowed;
-    background: rgba(0, 0, 0, 0.4);
 }
 
-/* Стили для блока фильтров в темной теме */
 .dark-theme .filter {
-    background-color: #1e1e1e;
+    background-color: transparent;
     border-radius: 10px;
     padding: 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .dark-theme select,
-.dark-theme input[type="text"] {
-    background-color: #2d2d2d;
-    color: #ffffff;
-    border: 1px solid #404040;
+.dark-theme .select-filtr input[type="text"] {
+    background-color: white;
     border-radius: 5px;
 }
 
@@ -1301,10 +1388,6 @@ anime-card:hover .tooltip.tooltip-left {
     outline: none;
 }
 
-.dark-theme select option {
-    background-color: #2d2d2d;
-    color: #ffffff;
-}
 
 .dark-theme .filter-title {
     color: #ff0000;

@@ -1,21 +1,3 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const blackButton = document.getElementById('black');
-    const lightButton = document.getElementById('light');
-    function toggleTheme() {
-        document.body.classList.toggle('dark-theme'); 
-
-        if (document.body.classList.contains('dark-theme')) {
-            blackButton.style.background = "red";
-            lightButton.style.backgroundColor = "transparent";
-        } else {
-            lightButton.style.background = "red";
-            blackButton.style.backgroundColor = "transparent";
-        }
-    }
-
-    blackButton.addEventListener("click", toggleTheme);
-    lightButton.addEventListener("click", toggleTheme);
-});
 document.addEventListener('scroll', () => {
   if (window.scrollY > 200) {
       document.body.classList.add('scrolled');
@@ -38,8 +20,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const imagePaths = [
             "/src/img/alya.png",
             "/src/img/dandan.jpg",
-            "/src/img/shadow.png",
-            "/src/img/new-video.jpg"
+            "/src/img/rezero.webp",
+            "/src/img/dictor.jpg"
         ];
         let currentIndex = 0;
         let isDragging = false;
@@ -112,7 +94,6 @@ document.addEventListener('DOMContentLoaded', function () {
             if (isDragging) requestAnimationFrame(animation);
         }
 
-        // Обработчики событий для кнопок
         document.getElementById('prev').addEventListener('click', () => {
             stopAutoScroll();
             if (currentIndex > 0) {
@@ -135,20 +116,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         setPositionByIndex();
     })
-document.addEventListener('DOMContentLoaded', function() {
-  const button = document.getElementById('button-filter');
-  const filterDropdown = document.getElementById('filterDropdown');
-  
-  button.addEventListener('click', () => {
-    filterDropdown.classList.toggle('show');
-  });
-  
-  document.addEventListener('click', (event) => {
-    if (!event.target.closest('.all-filter') && !event.target.closest('.filter-dropdown')) {
-      filterDropdown.classList.remove('show');
-    }
-  });
-});
 
 document.addEventListener('DOMContentLoaded', function (){
     const profileButton = document.getElementById('profile_button');
@@ -159,9 +126,8 @@ document.addEventListener('DOMContentLoaded', function (){
         accountDropdown.style.display = accountDropdown.style.display === 'block' ? 'none' : 'block';
     });
 
-    // Обработчик для переключения темы внутри выпадающего меню аккаунта
     themeToggleInAccount.addEventListener('click', function(e) {
-        e.stopPropagation(); // Предотвращаем закрытие меню при клике
+        e.stopPropagation(); 
         const body = document.body;
         const themeIcon = this.previousElementSibling;
         
@@ -180,7 +146,6 @@ document.addEventListener('DOMContentLoaded', function (){
         localStorage.setItem('theme', body.classList.contains('dark-theme') ? 'dark' : 'light');
     });
 
-    // Закрытие выпадающего меню при клике вне его
     document.addEventListener('click', (event) => {
         if (!profileButton.contains(event.target) && !accountDropdown.contains(event.target)) {
             accountDropdown.style.display = 'none';
@@ -211,6 +176,34 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
+    const ratingBars = document.querySelectorAll('.rating-bar'); // Select all rating bars
+  
+    ratingBars.forEach(bar => {
+      const ratingFill = bar.querySelector('.rating-fill');
+      if (!ratingFill) {
+        console.error('Элемент .rating-fill не найден внутри', bar);
+        return; // Важно: прекращаем обработку текущей карточки
+      }
+  
+      const ratingWidth = parseInt(ratingFill.style.width);
+  
+      // Важно: удаляем все предыдущие классы
+      ratingFill.classList.remove('green', 'red', 'orange');
+  
+  
+      if (ratingWidth >= 80) {
+        ratingFill.classList.add('green');
+      } else if (ratingWidth >= 50) {
+        ratingFill.classList.add('red');
+      } else if (ratingWidth >= 25) {
+        ratingFill.classList.add('orange');
+      } else { //Добавляем класс для значений меньше 25
+          ratingFill.classList.add('gray');
+      }
+    });
+  });
+
+document.addEventListener('DOMContentLoaded', function() {
     const genreFilter = document.getElementById('genreFilter');
     const yearFilter = document.getElementById('yearFilter');
     const seasonFilter = document.getElementById('seasonFilter');
@@ -237,39 +230,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-    const moreFiltersButton = document.getElementById('moreFiltersButton');
-    const additionalFilters = document.getElementById('additionalFilters');
-
-   moreFiltersButton.addEventListener('click', function() {
-        if (additionalFilters.style.display === 'none') {
-            additionalFilters.style.display = 'block';
-            moreFiltersButton.textContent = 'Скрыть фильтры';
-        } else {
-            additionalFilters.style.display = 'none';
-            moreFiltersButton.textContent = 'Больше фильтров';
-        }
-    });
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-    const genreInput = document.getElementById('genre');
-    const yearInput = document.getElementById('year');
-
-    function applyThemeStyles(inputElement) {
-        if (document.body.classList.contains('dark-theme')) {
-            inputElement.style.backgroundColor = 'black';
-            inputElement.style.color = 'white';
-        } else {
-            inputElement.style.backgroundColor = 'white';
-            inputElement.style.color = 'black';
-        }
-    }
-
-    genreInput.addEventListener('focus', () => applyThemeStyles(genreInput));
-    yearInput.addEventListener('focus', () => applyThemeStyles(yearInput));
 });
 
 function showCustomDropdown(id) {
@@ -360,47 +320,49 @@ document.addEventListener('DOMContentLoaded', function() {
     const allCards = document.querySelectorAll('.anime-card');
 
     allCards.forEach(card => {
-        card.addEventListener('mouseenter', () => {
-            const tooltip = card.querySelector('.tooltip');
-            if (tooltip) {
-                tooltip.style.display = 'block'; 
-            } else {
-                console.error('Tooltip не найден для этой карточки');
-            }
+        const tooltip = card.querySelector('.tooltip');
+        if(tooltip){
+            card.addEventListener('mouseenter', () => {
+            tooltip.style.display = 'block';
+             });
+         card.addEventListener('mouseleave', () => {
+           tooltip.style.display = 'none';
         });
-
-        card.addEventListener('mouseleave', () => {
-            const tooltip = card.querySelector('.tooltip');
-            if (tooltip) {
-                tooltip.style.display = 'none'; 
-            }
-        });
+        } else {
+            console.error('Tooltip не найден для этой карточки');
+        }
     });
+
     function updateTooltipPosition() {
         const tooltips = document.querySelectorAll('.tooltip');
-        
         tooltips.forEach(tooltip => {
             const card = tooltip.closest('.anime-card');
-            const cardRect = card.getBoundingClientRect();
-            const tooltipWidth = tooltip.offsetWidth;
-            
-            // Проверяем, хватает ли места справа
-            if (cardRect.right + tooltipWidth > window.innerWidth) {
-                tooltip.classList.add('tooltip-left');
-            } else {
-                tooltip.classList.remove('tooltip-left');
+            if(card){
+                const cardRect = card.getBoundingClientRect();
+                const tooltipWidth = tooltip.offsetWidth;
+                if (cardRect.right + tooltipWidth > window.innerWidth) {
+                    tooltip.classList.add('tooltip-left');
+                } else {
+                    tooltip.classList.remove('tooltip-left');
+                }
             }
         });
     }
-    
-    // Вызываем функцию при наведении на карточку
-    document.querySelectorAll('.anime-card').forEach(card => {
-        card.addEventListener('mouseenter', updateTooltipPosition);
-    });
-    
-    // Обновляем позиции при изменении размера окна
-    window.addEventListener('resize', updateTooltipPosition);
 });
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href').substring(1);
+      const targetElement = document.getElementById(targetId);
+  
+      if (targetElement) {
+        window.scrollTo({
+          top: targetElement.offsetTop,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
 
 document.addEventListener('DOMContentLoaded', () => {
     const animeCards = document.querySelectorAll('.catalog .anime-card.container.video-container');
@@ -429,8 +391,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         pageNumbersContainer.innerHTML = '';
         const prevArrow = document.createElement('button');
-        prevArrow.innerHTML = '&lt;';
-        prevArrow.classList.add('pagination-button', 'arrow');
+        prevArrow.innerHTML = '';
+        prevArrow.classList.add('pagination-button', 'prev_arrow');
         prevArrow.disabled = page === 1;
         prevArrow.addEventListener('click', () => {
             if (currentPage > 1) {
@@ -479,8 +441,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const nextArrow = document.createElement('button');
-        nextArrow.innerHTML = '&gt;';
-        nextArrow.classList.add('pagination-button', 'arrow');
+        nextArrow.innerHTML = '';
+        nextArrow.classList.add('pagination-nav','pagination-button', 'next_arrow');
         nextArrow.disabled = page === totalPages;
         nextArrow.addEventListener('click', () => {
             if (currentPage < totalPages) {
@@ -512,7 +474,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Вычисляем количество видимых карточек
         cardsPerView = Math.floor(slider.offsetWidth / cardWidth);
         
-        // Проверяем и корректируем текущий индекс
+        // Проверяем и ко��ректируем текущий индекс
         if (currentIndex > cards.length - cardsPerView) {
             currentIndex = cards.length - cardsPerView;
             moveSlides(0);
@@ -569,10 +531,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Добавляем обработчик для переключения темы
 document.getElementById('theme-toggle').addEventListener('click', function() {
     const body = document.body;
-    const themeIcon = this.previousElementSibling; // Получаем иконку
+    const themeIcon = this.previousElementSibling; 
     
     if (body.classList.contains('dark-theme')) {
         body.classList.remove('dark-theme');
@@ -586,11 +547,9 @@ document.getElementById('theme-toggle').addEventListener('click', function() {
         themeIcon.classList.add('fa-sun');
     }
     
-    // Сохраняем выбор пользователя
     localStorage.setItem('theme', body.classList.contains('dark-theme') ? 'dark' : 'light');
 });
 
-// Проверяем сохраненную тему при загрузке
 document.addEventListener('DOMContentLoaded', function() {
     const savedTheme = localStorage.getItem('theme');
     const themeToggle = document.getElementById('theme-toggle');
@@ -604,3 +563,19 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    const favoriteButtons = document.querySelectorAll('.favorite-button');
+
+    favoriteButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const icon = this.querySelector('i');
+            if (icon.classList.contains('far')) {
+                icon.classList.remove('far');
+                icon.classList.add('fas');
+            } else {
+                icon.classList.remove('fas');
+                icon.classList.add('far');
+            }
+        });
+    });
+});

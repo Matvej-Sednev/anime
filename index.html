@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="src/css/style.css">
     <script src="/src/JS/filters.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <title>Аниме</title>
 </head>
 <body>
@@ -19,22 +19,11 @@
     </div>
 
     <div class="menu-profile">
-        <ul class="theme-togle">
-            <li>
-                <button id="light" class="theme-icon sun-icon">
-                    <img src="/src/img/sun.svg" alt="">
-                </button>
-            </li>
-            <li>
-                <button id="black" class="theme-icon moon-icon">
-                    <img src="/src/img/moon.svg" alt="">
-                </button>
-            </li>
-        </ul>
         <nav>
             <ul class="profile">
-                <li><a href="#">Главная</a></li>
-                <li><a href="#">Аниме сезона</a></li>
+                <li><a href="#anons">Главная</a></li>
+                <li><a href="#season">Аниме сезона</a></li>
+                <li><a href="#catalog">Каталог</a></li>
             </ul>
         </nav>
         <div class="profile_account">
@@ -65,7 +54,7 @@
     </div>
     <div class="burger-menu">&#9776;</div>
 </header>
-<div class="video-anons-slider">
+<div class="video-anons-slider" id="anons">
     <div class="slides">
       <div class="video-anons">
         <div class="description-video">
@@ -97,7 +86,7 @@
         <div class="description-video">
           <div class="description">
               <div class="logo-description">
-                <img src="src/img/Class_of_the_Elite-edite.png" alt="">
+                <img src="src/img/re-zero-logo-1.png" alt="">
               </div>
             <p>Аниме новинки осени. Новые тайтлы и долгожданные продолжения</p>
           </div>
@@ -109,6 +98,9 @@
       <div class="video-anons">
         <div class="description-video">
           <div class="description">
+            <div class="logo-description">
+                <img src="src/img/orig.png" alt="">
+              </div>
             <p>Аниме новинки осени. Новые тайтлы и долгожданные продолжения</p>
           </div>
           <div class="button-video">
@@ -118,15 +110,18 @@
         
       </div>
     </div>
-    <button id="prev"><img src="src/img/circle-arrow-left.png" alt=""></button>
-    <button id="next"><img src="src/img/circle-arrow-right.png" alt=""></button>
+    <button id="prev" class="season-nav anons-prev" aria-label="Предыдущий анонс"></button>
+    <button id="next" class="season-nav anons-next" aria-label="Следующий анонс"></button>
   </div>
 
-<h1 class="season-title">Аниме Сезона</h1>
+<h1 class="season-title" id="season">Аниме Сезона</h1>
 <div class="season-slider">
-    <button class="season-nav season-prev" aria-label="Предыдущие аниме">&lt;</button>
+    <button class="season-nav season-prev" aria-label="Предыдущие аниме"></button>
     <div class="season-slides">
         <div class="anime-card card container video-container">
+            <button class="favorite-button">
+                <i class="far fa-heart"></i>
+            </button>
             <img id="posterImage" src="src/img/Solo.jpg" alt="Poster Image">
             <video muted id="myVideo" type="video/mp4" disablePictureInPicture="true">
                 <source src="src/img/58800769ab1d87cca5f2846001f64095.1080.mp4">
@@ -309,11 +304,11 @@
             </div>
         </div>
     </div>
-    <button class="season-nav season-next" aria-label="Следующие аниме">&gt;</button>
+    <button class="season-nav season-next" aria-label="Следующие аниме"></button>
 </div>
 
 
-<h3 class="anime-catalog">Каталог аниме</h3>
+<h3 class="anime-catalog" id="catalog">Каталог аниме</h3>
 <div class="filter">
     <div class="filter-select">
         <div>
@@ -397,117 +392,6 @@
                     </select>
                 </form>
             </div>
-        </div>
-        <div class="all-filter">
-            <button id="button-filter" class="button-filter"><img src="src/img/filter.svg" alt="Filter"></button>
-        </div>
-          
-        <div class="filter-container">
-            <div id="filterDropdown" class="filter-dropdown">
-                <div class="filter-nez">
-                    <div>
-                        <p>Жанры</p>
-                        <div class="select-filtr">
-                            <form>
-                                <select id="genreFilterDropdown">
-                                    <option value="">Все</option>
-                                    <option value="action">Экшен</option>
-                                    <option value="comedy">Комедия</option>
-                                    <option value="drama">Драма</option>
-                                    <option value="fantasy">Фэнтези</option>
-                                    <option value="horror">Ужасы</option>
-                                    <option value="romance">Романтика</option>
-                                    <option value="sci-fi">Научная фантастика</option>
-                                    <option value="thriller">Триллер</option>
-                                    <option value="mystery">Мистика</option>
-                                    <option value="adventure">Приключения</option>
-                                    <option value="slice-of-life">Повседневность</option>
-                                    <option value="sports">Спорт</option>
-                                    <option value="historical">Исторический</option>
-                                    <option value="mecha">Меха</option>
-                                    <option value="supernatural">Сверхъестественное</option>
-                                </select>
-                            </form>
-                        </div>
-                    </div>
-                    <div>
-                        <p>Год</p>
-                        <div class="select-filtr">
-                            <form>
-                                <select id="yearFilterDropdown">
-                                    <option value="">Все</option>
-                                    <!-- Добавьте годы с 2000 по 2024 -->
-                                    <option value="2000">2000</option>
-                                    <option value="2001">2001</option>
-                                    <option value="2002">2002</option>
-                                    <option value="2003">2003</option>
-                                    <option value="2004">2004</option>
-                                    <option value="2005">2005</option>
-                                    <option value="2006">2006</option>
-                                    <option value="2007">2007</option>
-                                    <option value="2008">2008</option>
-                                    <option value="2009">2009</option>
-                                    <option value="2010">2010</option>
-                                    <option value="2011">2011</option>
-                                    <option value="2012">2012</option>
-                                    <option value="2013">2013</option>
-                                    <option value="2014">2014</option>
-                                    <option value="2015">2015</option>
-                                    <option value="2016">2016</option>
-                                    <option value="2017">2017</option>
-                                    <option value="2018">2018</option>
-                                    <option value="2019">2019</option>
-                                    <option value="2020">2020</option>
-                                    <option value="2021">2021</option>
-                                    <option value="2022">2022</option>
-                                    <option value="2023">2023</option>
-                                    <option value="2024">2024</option>
-                                </select>
-                            </form>
-                        </div>
-                    </div>
-                    <div>
-                        <p>Сезон</p>
-                        <div class="select-filtr">
-                            <form>
-                                <select id="seasonFilterDropdown">
-                                    <option value="">Все</option>
-                                    <option value="winter">Зима</option>
-                                    <option value="spring">Весна</option>
-                                    <option value="summer">Лето</option>
-                                    <option value="autumn">Осень</option>
-                                </select>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="filter-nez">
-                    <div>
-                        <label for="rating">Рейтинг:</label>
-                        <input type="range" id="rating" name="rating" min="0" max="10" value="5" step="0.1">
-                    </div>
-                    <div>
-                         <label for="episodes">Количество эпизодов:</label>
-                        <input type="range" id="episodes" name="episodes" min="1" max="100" value="50">
-                    </div>
-                    <div>
-                        <p>Тип</p>
-                        <div class="select-filtr">
-                            <form>
-                                <select id="typeFilter">
-                                    <option value="">Все</option>
-                                    <option value="tv">Сериал</option>
-                                    <option value="movie">Фильм</option>
-                                    <option value="ova">OVA</option>
-                                    <option value="ona">ONA</option>
-                                    <option value="special">Специальный выпуск</option>
-                                </select>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </div>
 </div>
@@ -1887,30 +1771,31 @@
     <span id="page-info"></span>
     <div id="page-numbers"></div>
             </div>
-<footer class="footer">
-   <div class="footer-top"> 
-        <div class="footer__logo">
-            <img src="/src/img/logo.svg" alt="Логотип">
-            <p>Anika</p>
-            </div>
-        <div class="footer-nav">
-            <ul>
-                <li><a href="#">Аниме анонсы</a></li>
-                <li><a href="#">Аниме сезона</a></li>
-                <li><a href="#">Каталог аниме</a></li>
-            </ul>
-        </div>
-        <div style="display: flex; width: 100px; justify-content: space-between;">
-            <a href=""><img style="width: 30px;" src="src/img/Telegram.svg" alt=""></a>
-            <a href=""><img  style="width: 30px;" src="src/img/rutube.svg" alt=""></a>
-            <a href=""><img style="width: 30px;" src="src/img/VK.svg" alt=""></a>
-    </div>
-        <div style="margin-left: 8rem;">
-            <p>Пользовательское соглашение</p>
-            <p>Политика</p>
+            <footer>
+                <div class="footer-container">
+                    <div class="footer-logo">
+                        <img src="src/img/logo.svg" alt="Anika Logo">
+                        Anika
+                    </div>
+                    <div class="footer-links">
+                        <nav>
+                            <ul>
+                                <li><a href="#anons">Главная</a></li>
+                                <li><a href="#season">Аниме сезона</a></li>
+                                <li><a href="#catalog">Каталог</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="footer-social">
+                        <a href="#" aria-label="ВКонтакте"><i class="fab fa-vk"></i></a>
+                        <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                        <a href="#" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+                    </div>
+                    <div class="footer-copyright">
+                       &copy; 2024 Anika. Все права защищены.
+                    </div>
                 </div>
-            </div>
-</footer>
+            </footer>
 
 </body>
 </html>
